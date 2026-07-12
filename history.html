@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Barcelona & Costa Brava — Detailed Historical Companion</title>
+<style>
+:root{
+  --sand:#FBF7F0;--sand-deep:#F3EBDD;--ink:#2C2A26;--ink-soft:#5A554C;
+  --terracotta:#C56B4A;--terracotta-deep:#A8543A;--sea:#3E7C8C;--sea-deep:#2E5E6B;
+  --sun:#E0A23C;--line:#E5DCCC;--card:#fff;--green:#2F6B3D;
+  --shadow:0 5px 22px rgba(60,50,35,.08);--shadow-soft:0 2px 10px rgba(60,50,35,.055)
+}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--sand);color:var(--ink);line-height:1.68;-webkit-font-smoothing:antialiased}
+a{color:var(--sea-deep)}img{max-width:100%;display:block;background:var(--sand-deep)}
+.wrap{max-width:820px;margin:0 auto;padding:0 16px}
+.hero{padding:46px 20px 38px;text-align:center;background:linear-gradient(170deg,var(--sand-deep),var(--sand));border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--terracotta);font-weight:750;margin-bottom:10px}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:42px;line-height:1.08;margin-bottom:13px;letter-spacing:-.015em}
+.hero p{max-width:690px;margin:0 auto;color:var(--ink-soft);font-size:15px}
+.top-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--sea);color:#fff;padding:10px 15px;border-radius:11px;text-decoration:none;font-size:14px;font-weight:700;box-shadow:var(--shadow-soft)}
+.btn.secondary{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:24px 0}
+.nav a{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 14px;text-decoration:none;color:var(--ink);font-size:13px;font-weight:700;box-shadow:var(--shadow-soft)}
+.section{padding:36px 0;border-top:1px solid var(--line);scroll-margin-top:12px}.section:first-of-type{border-top:none}
+.head{display:flex;align-items:flex-start;gap:12px;margin-bottom:17px}.badge{width:42px;height:42px;border-radius:12px;background:var(--terracotta);color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 42px;font-weight:800}
+.head small{display:block;color:var(--terracotta);text-transform:uppercase;letter-spacing:.11em;font-weight:750;font-size:11px}.head h2{font-family:Georgia,"Times New Roman",serif;font-size:28px;line-height:1.18;letter-spacing:-.01em}
+.section-intro{font-size:15px;color:var(--ink-soft);margin:-5px 0 17px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:21px;margin-bottom:14px;box-shadow:var(--shadow-soft)}
+.card h3{font-size:19px;line-height:1.25;margin-bottom:8px}.card h4{font-size:15px;color:var(--sea-deep);margin:15px 0 5px}.card p{font-size:15px;color:var(--ink-soft);margin-bottom:10px}.card p:last-child{margin-bottom:0}
+.card ul{padding-left:20px;color:var(--ink-soft);font-size:14.5px}.card li{margin:6px 0}.card strong{color:var(--ink)}
+.facts{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 13px}.fact{font-size:12px;background:var(--sand);border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--ink-soft)}
+.why{background:#EEF5F7;border-left:4px solid var(--sea);border-radius:0 11px 11px 0;padding:13px 14px;margin:0 0 15px;font-size:14.5px;color:var(--ink)}
+.look{background:#EAF3EC;border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:11px 13px;margin-top:12px;font-size:14px;color:var(--ink)}
+.legend{background:#FBF1E3;border-left:4px solid var(--sun);border-radius:0 10px 10px 0;padding:11px 13px;margin-top:12px;font-size:14px;color:var(--ink)}
+.dark-note{background:#F7ECE8;border-left:4px solid var(--terracotta);border-radius:0 10px 10px 0;padding:11px 13px;margin-top:12px;font-size:14px;color:var(--ink)}
+.timeline{list-style:none;border-left:3px solid var(--line);margin-left:8px}.timeline li{position:relative;padding:0 0 18px 18px;font-size:14.5px;color:var(--ink-soft)}.timeline li:before{content:"";position:absolute;left:-7px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--terracotta);border:2px solid var(--sand)}.timeline strong{color:var(--ink)}
+.media{margin:0 0 15px}.media img{width:100%;height:300px;object-fit:cover;border-radius:16px;border:1px solid var(--line)}.media figcaption{font-size:12px;color:var(--ink-soft);margin-top:7px}.media figcaption a{font-weight:700;text-decoration:none}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 15px}.gallery figure{background:var(--card);border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:var(--shadow-soft)}.gallery img{width:100%;height:205px;object-fit:cover}.gallery figcaption{font-size:12px;color:var(--ink-soft);padding:8px 10px}.gallery figcaption a{font-weight:700;text-decoration:none}
+.quick-read{display:grid;gap:10px;margin:0 0 15px}.quick-read .q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 14px;box-shadow:var(--shadow-soft)}.quick-read .q span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--terracotta);font-weight:800;margin-bottom:3px}.quick-read .q p{font-size:14px;color:var(--ink-soft)}
+.namebox{background:var(--sand-deep);border-radius:12px;padding:13px 14px;margin:12px 0;font-size:14px}.namebox strong{color:var(--ink)}
+.source-note{font-size:12.5px;color:var(--ink-soft);padding-top:7px}.source-note a{text-decoration:none;font-weight:700}
+.source-list{list-style:none}.source-list li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:13px}.source-list li:last-child{border-bottom:none}.source-list a{word-break:break-word}
+.totop{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;text-decoration:none;box-shadow:var(--shadow);z-index:30}
+footer{text-align:center;padding:30px 20px 52px;color:var(--ink-soft);font-size:12px;border-top:1px solid var(--line)}
+@media(min-width:640px){.nav{grid-template-columns:repeat(3,minmax(0,1fr))}.quick-read{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.hero h1{font-size:33px}.wrap{padding:0 14px}.card{padding:17px}.head h2{font-size:24px}.nav{grid-template-columns:1fr 1fr}.nav a{padding:11px 10px;font-size:12px}.gallery{grid-template-columns:1fr}.gallery img{height:225px}.media img{height:235px}}
+</style>
+</head>
+<body>
+<span id="top"></span>
+<header class="hero">
+  <div class="eyebrow">Barcelona & Costa Brava · July 2026</div>
+  <h1>Detailed Historical Companion</h1>
+  <p>This is not just a list of dates. It explains why each place became famous, what happened there, which stories are legend or fact, and what details are worth noticing while you are actually standing there.</p>
+  <div class="top-actions">
+    <a class="btn" href="index.html">← Back to itinerary</a>
+    <a class="btn secondary" href="#timeline">Start with the big picture</a>
+  </div>
+</header>
+
+<div class="wrap">
+<nav class="nav" aria-label="Historical sections">
+  <a href="#timeline">Big timeline</a><a href="#tossa">Tossa de Mar</a><a href="#barcelona">Barcelona</a>
+  <a href="#gaudi">Gaudí sites</a><a href="#oldcity">Old City & El Born</a><a href="#montserrat">Montserrat</a>
+  <a href="#pyrenees">Vic, Queralbs & Núria</a><a href="#girona">Girona</a><a href="#besalu">Besalú</a>
+  <a href="#castellfollit">Castellfollit</a><a href="#sources">Sources</a>
+</nav>
+
+<section class="section" id="timeline">
+  <div class="head"><div class="badge">1</div><div><small>Start here</small><h2>The whole trip in one historical story</h2></div></div>
+  <p class="section-intro">Nearly every stop on this itinerary makes more sense when you see Catalonia as a place repeatedly shaped by trade, mountains, religious devotion, war, industrial wealth and a strong regional culture.</p>
+  <div class="quick-read">
+    <div class="q"><span>The oldest layer</span><p>Roman ports, villas and fortified settlements created the first urban foundations of Barcelona, Tossa, Vic and Girona.</p></div>
+    <div class="q"><span>The medieval layer</span><p>Counts, monasteries, merchants, Jewish communities and mountain sanctuaries produced the churches, walls and bridges seen today.</p></div>
+    <div class="q"><span>The modern layer</span><p>Industrial wealth, Catalan Modernisme, civil war, tourism and the 1992 Olympics transformed how the same places are used and understood.</p></div>
+  </div>
+  <div class="card">
+    <ul class="timeline">
+      <li><strong>1st century BC onward:</strong> Rome establishes Barcino in Barcelona and a wealthy coastal estate at Turissa, present-day Tossa de Mar. Roman Ausa develops at Vic, while Gerunda grows at Girona on the road toward Gaul.</li>
+      <li><strong>9th–11th centuries:</strong> Christian counties consolidate power south of the Pyrenees. Monasteries and bishoprics become centres of administration, learning, landholding and pilgrimage.</li>
+      <li><strong>12th–14th centuries:</strong> Tossa fortifies its headland; Barcelona expands as a Mediterranean trading power; Girona and Besalú thrive as political and commercial centres; Romanesque churches spread through mountain villages.</li>
+      <li><strong>14th–15th centuries:</strong> Catalan Gothic architecture reaches a distinctive form: broad, unified interiors rather than the highly divided vertical style familiar from northern Europe. Jewish life remains intellectually and economically important, but persecution intensifies and ends in expulsion in 1492.</li>
+      <li><strong>1714:</strong> Barcelona falls after a long siege in the War of the Spanish Succession. The defeat becomes one of the defining memories of modern Catalan history.</li>
+      <li><strong>19th century:</strong> Barcelona's walls are removed, the Eixample grid is built, factories create new wealth, and Modernisme becomes an architectural expression of both innovation and Catalan cultural confidence.</li>
+      <li><strong>1882 onward:</strong> the Sagrada Família begins as a conventional neo-Gothic church and evolves into Gaudí's radical synthesis of nature, geometry, faith and structural invention.</li>
+      <li><strong>1930s:</strong> Tossa becomes an artists' refuge; Vall de Núria lends its name to Catalonia's autonomy statute; Barcelona is scarred by Civil War bombing and political repression.</li>
+      <li><strong>Late 20th century:</strong> cinema, mass tourism, heritage restoration and the 1992 Olympics reshape the international image of Barcelona and the Costa Brava.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="tossa">
+  <div class="head"><div class="badge">2</div><div><small>Days 1–2</small><h2>Tossa de Mar: a fortified coast with three different identities</h2></div></div>
+  <div class="why"><strong>Why it is famous:</strong> Tossa combines the only substantially intact fortified medieval town on the Catalan coast with Roman remains, a 1930s international art colony and an unexpected link to Hollywood.</div>
+  <div class="gallery">
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tossa_de_Mar,_Vila_Vella_-_001.jpg?width=1500" alt="Tossa de Mar Vila Vella above the beach"><figcaption>Vila Vella above Platja Gran. <a href="https://commons.wikimedia.org/wiki/File:Tossa_de_Mar,_Vila_Vella_-_001.jpg">Photo source</a></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Costa_Brava_-_Tossa_de_Mar_-_La_Vila_Vella_-_Old_Town_Fortifications_-_View_SE_on_the_Medieval_Old_Town.jpg?width=1500" alt="Walls and towers of Vila Vella"><figcaption>The fortified headland and surviving towers. <a href="https://commons.wikimedia.org/wiki/File:Costa_Brava_-_Tossa_de_Mar_-_La_Vila_Vella_-_Old_Town_Fortifications_-_View_SE_on_the_Medieval_Old_Town.jpg">Photo source</a></figcaption></figure>
+  </div>
+
+  <div class="card">
+    <h3>Before the castle: Roman Turissa and the villa of Els Ametllers</h3>
+    <div class="facts"><span class="fact">Founded in the 1st century BC</span><span class="fact">Occupied until the 6th century AD</span><span class="fact">Wine and agricultural production</span></div>
+    <p>The Romans knew this settlement as <strong>Turissa</strong>. The villa of Els Ametllers was not simply a luxurious holiday home; it was the headquarters of a working agricultural estate. Its upper level, the <em>pars urbana</em>, contained the owner's residential rooms, baths, mosaics and heated spaces. The lower level, the <em>pars fructuaria</em>, handled production, storage and processing.</p>
+    <p>This split is useful because it shows the two sides of Roman elite life: comfort and display above, labour and profit below. Coastal estates like this produced wine and other goods for wider Mediterranean trade.</p>
+    <p>A late-antique mosaic identifies an owner named <strong>Vitalis</strong>. The inscription effectively links the wellbeing of the estate owner to the happiness of Turissa, giving a rare personal name to an archaeological site that might otherwise feel anonymous.</p>
+    <div class="look"><strong>Notice:</strong> the slope is part of the design. The wealthy residence sat above the productive zone, physically separating status from work while still controlling the whole estate.</div>
+  </div>
+
+  <div class="card">
+    <h3>Vila Vella: the sea was opportunity and danger</h3>
+    <p>The walled town was built from the early 13th century and strengthened later. Its location looks romantic today, but it was chosen because the coast was exposed. The sea brought fishing, trade and communication, but also raiders and pirates.</p>
+    <p>The walls enclosed homes, narrow lanes, a governor's residence and a church. Their irregular shape follows the rock rather than forcing a perfect geometry. This is why the settlement feels grown into the headland instead of placed on top of it.</p>
+    <p>At the summit, the ruined church of Sant Vicenç and the lighthouse show how the same strategic point changed function over time: first defence and worship, then navigation and tourism.</p>
+    <div class="look"><strong>Notice:</strong> towers are not decorative turrets. They create sightlines along the wall and out to sea. From the upper paths, imagine trying to identify an approaching vessel before it reached the beach.</div>
+  </div>
+
+  <div class="card">
+    <h3>The 1930s: Tossa becomes a “blue paradise” for artists</h3>
+    <p>Between the world wars, Tossa attracted painters, writers and intellectuals from across Europe. It was cheap, visually dramatic and still relatively isolated. Marc Chagall stayed in 1934 and called it his <strong>“blue paradise”</strong>, a phrase that still defines the town's cultural identity.</p>
+    <p>His painting <em>The Celestial Violinist</em>, now associated with Tossa's municipal museum, does not merely copy the local landscape. Chagall used Tossa's intense blues as a frame for memories of his childhood world in Vitebsk. That mixture of Mediterranean light and displaced memory is part of what made the artists' colony more than a picturesque holiday scene.</p>
+    <p>The Municipal Museum opened in 1935 inside the former governor's house. That was unusually early for a small coastal town to create a museum devoted partly to contemporary art.</p>
+    <div class="namebox"><strong>Interesting name:</strong> writers of the period described Tossa as a “Babel of the Arts” because so many nationalities and artistic circles met there.</div>
+  </div>
+
+  <div class="card">
+    <h3>Ava Gardner and the moment Tossa entered popular culture</h3>
+    <p>In 1950–51, Tossa became a filming location for <em>Pandora and the Flying Dutchman</em>, starring Ava Gardner and James Mason. The film's saturated colour photography turned the town into an internationally visible fantasy landscape just as Mediterranean tourism was beginning to expand.</p>
+    <p>The Ava Gardner statue inside Vila Vella is therefore not random celebrity decoration. It represents a turning point when Tossa's image moved from artists' refuge to globally recognisable tourist destination.</p>
+    <div class="legend"><strong>Why this matters:</strong> Tossa's fame comes from repeated reinvention. Roman estate, medieval refuge, artists' haven, film location and beach resort all occupy the same compact landscape.</div>
+  </div>
+  <p class="source-note">Section sources: <a href="https://visittossa.com/en/cultural-heritage/tossa-throughout-time/the-walled-vila-vella/">Tossa Tourism — Vila Vella</a> · <a href="https://www.catalunya.com/en/continguts/patrimoni-cultural/ametllers-de-tossa-roman-villa-17-16003-573257">Catalonia — Els Ametllers</a> · <a href="https://visittossa.com/en/experiences/get-inspired/">Tossa Tourism — Chagall</a></p>
+</section>
+
+<section class="section" id="barcelona">
+  <div class="head"><div class="badge">3</div><div><small>Days 3–6</small><h2>Barcelona: a city that keeps rewriting itself</h2></div></div>
+  <div class="why"><strong>Why it is famous:</strong> Barcelona is unusual because Roman walls, medieval political power, industrial urban planning, Modernista architecture and Olympic-era redevelopment can all be read in the street plan.</div>
+  <div class="gallery">
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Temple_August_Barcelona_20130905_3.JPG?width=1500" alt="Roman Temple of Augustus columns in Barcelona"><figcaption>Temple of Augustus columns hidden inside the Gothic Quarter. <a href="https://commons.wikimedia.org/wiki/File:Temple_August_Barcelona_20130905_3.JPG">Photo source</a></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Eixample_aire_cropped.jpg?width=1500" alt="Aerial view of Barcelona Eixample grid"><figcaption>The Eixample's octagonal blocks from above. <a href="https://commons.wikimedia.org/wiki/File:Eixample_aire_cropped.jpg">Photo source</a></figcaption></figure>
+  </div>
+
+  <div class="card">
+    <h3>Barcino: the small Roman colony hidden inside the old city</h3>
+    <p>Barcelona's Roman colony was formally named <strong>Colonia Iulia Augusta Faventia Paterna Barcino</strong>. It was founded around the end of the 1st century BC on a low hill called Mons Taber, near today's Plaça Sant Jaume.</p>
+    <p>Barcino was not one of the largest Roman cities in Hispania, but its position was useful: near the sea, protected by surrounding hills and connected to regional roads. Its forum occupied the political centre, and a temple to Augustus stood at the city's highest point.</p>
+    <p>The most striking survival is not a freestanding ruin but the way later Barcelona absorbed Roman structures. Houses and palaces were built into the Roman wall, and ancient towers became foundations for medieval buildings. Barcelona did not preserve Rome separately; it reused it.</p>
+    <div class="look"><strong>Notice:</strong> around Plaça Nova and Plaça Ramon Berenguer, medieval buildings seem to grow directly out of Roman masonry. Inside Carrer del Paradís, four Temple of Augustus columns suddenly appear within a building courtyard.</div>
+  </div>
+
+  <div class="card">
+    <h3>Medieval Barcelona: merchants, monarchy and Mediterranean ambition</h3>
+    <p>From the early Middle Ages, Barcelona became the centre of a powerful county. Through dynastic union, the counts of Barcelona became rulers within the Crown of Aragon, whose commercial and political influence extended across the western Mediterranean.</p>
+    <p>This wealth was not only royal. Merchants, maritime guilds, craftsmen and religious institutions shaped whole neighbourhoods. The dense lanes of the old city reflect a world organised by trade, parish, guild and property rather than by modern traffic.</p>
+    <p>Barcelona's institutions also developed a strong tradition of negotiated government. The Generalitat and municipal council emerged from medieval political structures, which helps explain why historic buildings around Plaça Sant Jaume still carry major political importance today.</p>
+  </div>
+
+  <div class="card">
+    <h3>1714: why one siege still matters</h3>
+    <p>During the War of the Spanish Succession, Barcelona supported the Habsburg claimant against the Bourbon Philip V. After a long siege, the city fell on <strong>11 September 1714</strong>.</p>
+    <p>The defeat was followed by the suppression of Catalan political institutions under the Nueva Planta decrees. A large military citadel was built to control the city, and many residents of La Ribera were forced to demolish their own homes to clear the site.</p>
+    <p>This is why 11 September is now Catalonia's national day, the Diada. It commemorates defeat rather than victory because the memory centres on lost institutions and resistance.</p>
+    <div class="dark-note"><strong>When you see El Born:</strong> the archaeological streets beneath the market are not a generic medieval display. They are the remains of a living neighbourhood partly erased after 1714.</div>
+  </div>
+
+  <div class="card">
+    <h3>The Eixample: a public-health project that became Barcelona's signature</h3>
+    <p>By the mid-19th century, industrial Barcelona was trapped within old walls. Population density, poor sanitation and factory pollution made expansion urgent. Engineer <strong>Ildefons Cerdà</strong> proposed a radical grid in 1859.</p>
+    <p>The name <em>Eixample</em> simply means “extension.” Cerdà's blocks have clipped corners, creating octagonal intersections. These <em>xamfrans</em> improved visibility, turning space and ventilation. He imagined open inner gardens, equal access to services and a city planned around health rather than aristocratic monuments.</p>
+    <p>Real-estate pressure later filled in many courtyards and increased building density, so the realised district is less utopian than his plan. Even so, the grid remains one of the most influential pieces of modern urban planning.</p>
+    <div class="look"><strong>Notice:</strong> at every intersection, the corners pull back and the street suddenly widens. That extra breathing space is the physical signature of Cerdà's idea.</div>
+  </div>
+
+  <div class="card">
+    <h3>From industrial city to global city</h3>
+    <p>Industrial wealth financed the great apartment houses of Passeig de Gràcia, where rival families commissioned façades as status symbols. The 1888 and 1929 international exhibitions also gave Barcelona monumental parks, avenues and public buildings.</p>
+    <p>The 1992 Olympic Games transformed transport, public space and the waterfront. Railway and industrial barriers were removed or reorganised, beaches were improved, and the city was marketed internationally as a Mediterranean design capital.</p>
+    <p>This success also produced modern tensions: tourism, housing pressure and the conversion of residential districts into visitor zones. Barcelona's history is therefore not a finished heritage story; it is an ongoing argument about who the city is for.</p>
+  </div>
+  <h3>La Rambla and La Boqueria: a riverbed that became a promenade</h3>
+<p>La Rambla was not planned as a grand avenue. The word comes from the Arabic <em>ramla</em> — a sandy, seasonal watercourse. The street follows a stream bed that ran outside the medieval wall; when the wall came down, the drained channel became the natural promenade between the old city and El Raval.</p>
+<p>Its edges were once lined with convents and monasteries, which is why so many landmarks stand on former religious ground. La Boqueria's official name is <strong>Mercat de Sant Josep</strong>: the iron-and-glass market, formalised from 1840, occupies the site of the demolished Carmelite convent of Sant Josep. The Liceu opera house (1847) rose a few steps away on former monastic land as well.</p>
+<p><strong>Notice:</strong> the market's grand entrance arch and stained glass face La Rambla like a stage set — the 19th-century city dressing up a food market as civic architecture. And the Canaletes fountain at the top carries its own tradition: drink from it and you are said to return to Barcelona.</p>
+<h3>Filipino Barcelona: where the Propaganda Movement began</h3>
+<p>Barcelona holds a chapter of Philippine history that most visitors — including most Filipinos — never hear about. José Rizal's Spanish years began here: he arrived on 16 June 1882 and boarded at the Fonda de España, today's Hotel España beside the Liceu, where a marker commemorates his stay. During those Barcelona months he wrote <em>El Amor Patrio</em>, his first published essay of national feeling, printed in Manila's Diariong Tagalog that August.</p>
+<p>Seven years later the city became the birthplace of the reform movement's public voice. <em>La Solidaridad</em> — the Propaganda Movement's fortnightly newspaper — published its first issue in Barcelona on 15 February 1889 under Graciano López Jaena, with Rizal, Marcelo H. del Pilar and others as its driving contributors, before moving to Madrid later that year. The city has marked the paper's former headquarters at Plaça del Bonsuccés with an official plaque in Catalan and Tagalog, crediting the paper's role in the country's road to independence.</p>
+<p>The story's dark bookend is on the hill: in October 1896, Rizal — travelling as a volunteer doctor bound for Cuba — was arrested at sea, incarcerated at Montjuïc Castle on 4 October, and shipped back to Manila as a prisoner two days later, to trial and execution that December. The castle today houses a Sala José Rizal, turning his last European confinement into a memorial.</p>
+<p>The colonial economy left its own trace on La Rambla: number 109, now Hotel 1898, was the headquarters of the Compañía General de Tabacos de Filipinas, founded in 1881 to run the Philippine tobacco trade — the hotel's name is the year that trade's empire ended. And in Gràcia, a street sign reads <strong>Carrer del Doctor Rizal</strong>: the coloniser's city, naming a street for the man it executed.</p>
+<p><strong>Notice:</strong> the Bonsuccés plaque is trilingual — read the Tagalog lines aloud and you are hearing the language of the reformists on the street where they printed it.</p>
+<p class="source-note">Section sources: <a href="https://www.barcelonaturisme.com/wv3/en/page/43/history-of-barcelona.html">Barcelona Tourism — History</a> · <a href="https://www.meet.barcelona/en/visit-and-love-it/barcelona-history/roman-barcino">Barcelona City Council — Roman Barcino</a> · <a href="https://patrimoni.gencat.cat/en/collection/born-cultural-centre">Catalan Heritage — El Born</a></p>
+</section>
+
+<section class="section" id="gaudi">
+  <div class="head"><div class="badge">4</div><div><small>Booked visits</small><h2>Gaudí: strange-looking architecture with very strict logic</h2></div></div>
+  <div class="why"><strong>Why these sites are famous:</strong> Gaudí did not simply decorate buildings with curves. He used geometry, gravity, craft, colour and religious symbolism to invent structures that behave like natural systems.</div>
+  <div class="gallery">
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sagrada_Familia_blue_%26_green_stained_glass_windows.jpg?width=1500" alt="Blue and green stained glass inside Sagrada Familia"><figcaption>Filtered colour inside the Sagrada Família. <a href="https://commons.wikimedia.org/wiki/File:Sagrada_Familia_blue_%26_green_stained_glass_windows.jpg">Photo source</a></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Barcelona_-_Parc_G%C3%BCell_-_Main_square_-_Panorama_View_along_curved_mosaic_benches_towards_the_Entrance_Buildings_01.jpg?width=1500" alt="Park Guell terrace and mosaic bench"><figcaption>Park Güell's terrace and serpentine bench. <a href="https://commons.wikimedia.org/wiki/File:Barcelona_-_Parc_G%C3%BCell_-_Main_square_-_Panorama_View_along_curved_mosaic_benches_towards_the_Entrance_Buildings_01.jpg">Photo source</a></figcaption></figure>
+  </div>
+
+  <div class="card">
+    <h3>Modernisme: more than the Spanish version of Art Nouveau</h3>
+    <p>Modernisme flourished in Catalonia around the turn of the 20th century. Like Art Nouveau elsewhere, it rejected dull historic imitation and embraced craft, nature and new materials. In Barcelona, however, it was also tied to the <strong>Renaixença</strong>, the revival of Catalan language and culture.</p>
+    <p>Wealthy industrial families wanted architecture that looked modern, local and unmistakably prestigious. This created ideal conditions for architects such as Gaudí, Lluís Domènech i Montaner and Josep Puig i Cadafalch.</p>
+    <p>The result is why Passeig de Gràcia can feel like a competition: façades were public statements about money, taste and cultural identity.</p>
+  </div>
+
+  <div class="card">
+    <h3>Sagrada Família: from ordinary neo-Gothic plan to total symbolic world</h3>
+    <div class="facts"><span class="fact">Cornerstone laid 1882</span><span class="fact">Gaudí took over 1883</span><span class="fact">Built through donations and visitor income</span></div>
+    <p>The project began as an expiatory church promoted by bookseller Josep Maria Bocabella. Architect Francisco de Paula del Villar designed a conventional neo-Gothic building. Gaudí inherited the project in 1883 and gradually transformed it beyond recognition.</p>
+    <p>He conceived the basilica as a complete Christian narrative. The <strong>Nativity façade</strong> celebrates birth, growth and creation with dense organic sculpture. The <strong>Passion façade</strong> is angular, spare and severe, making suffering feel exposed. The unfinished <strong>Glory façade</strong> represents the path toward God and the final themes of death, judgement and eternal life.</p>
+    <p>The planned 18 towers form a hierarchy: 12 apostles, four evangelists, the Virgin Mary and Jesus Christ. Their height is not arbitrary; the composition turns theology into skyline.</p>
+  </div>
+
+  <div class="card">
+    <h3>Why the interior feels like a forest</h3>
+    <p>Gaudí believed nature offered efficient structural solutions. The columns branch as they rise, dividing loads like tree trunks splitting into limbs. This reduces the need for a forest of external flying buttresses and makes the structure itself part of the visual experience.</p>
+    <p>He worked with ruled geometries such as hyperboloids, helicoids and paraboloids. These forms look organic but can be generated mathematically. Openings in the vaults distribute light, while branching columns direct forces toward the foundations.</p>
+    <p>Gaudí also used hanging-chain models. When a chain hangs freely, gravity forms a catenary curve; invert that shape and it becomes an efficient arch working mainly in compression.</p>
+    <div class="look"><strong>Notice:</strong> look upward where the columns change shape and colour according to load. The building becomes easier to understand when you see it as a structural diagram, not just decoration.</div>
+  </div>
+
+  <div class="card">
+    <h3>An unfinished building shaped by destruction and interpretation</h3>
+    <p>Gaudí died in 1926 after being struck by a tram. At that point, only a small portion of his enormous design had been completed. During the Spanish Civil War in 1936, his workshop was attacked and models, drawings and documents were damaged or destroyed.</p>
+    <p>Later architects reconstructed models from fragments and photographs. This is one reason the basilica remains controversial: every generation must decide how faithfully modern construction can interpret an architect who is no longer present.</p>
+    <p>Digital modelling, CNC cutting and prefabricated stone have accelerated work that Gaudí could only explore through plaster models. In 2026, the central tower of Jesus Christ reached its major inauguration milestone, making the basilica the world's tallest church, although work on the Glory façade and surrounding access continues.</p>
+    <div class="legend"><strong>The important idea:</strong> the Sagrada Família is famous partly because it is not a frozen masterpiece. It is a 140-year conversation between one architect's vision, destroyed evidence, modern engineering and a changing city.</div>
+  </div>
+
+  <div class="card">
+    <h3>Park Güell: the failed housing estate that became a masterpiece</h3>
+    <p>Eusebi Güell and Gaudí planned Park Güell as an exclusive residential development inspired by British garden-city ideas. The English word “Park” in its name deliberately signalled that influence.</p>
+    <p>The plan offered around 60 building plots on a healthy, elevated site above the polluted industrial city. Commercially, it failed. The location was inconvenient, restrictions were strict and buyers were not persuaded. Only two houses were built, neither designed by Gaudí.</p>
+    <p>Failure preserved the shared spaces. Instead of becoming a private suburb, the site eventually became a public park and one of Barcelona's most recognisable landscapes.</p>
+  </div>
+
+  <div class="card">
+    <h3>The park is also a machine for moving people and water</h3>
+    <p>The viaducts carry roads and walking routes while following the hill's contours. Their columns lean and curve because they respond to the terrain and loads rather than imitating a classical colonnade.</p>
+    <p>The Hypostyle Room was intended as a market for residents. Above it, the large terrace collects rainwater. Water drains through the structure into an underground cistern, and the famous stairway creature helps form part of the overflow system.</p>
+    <p>The serpentine bench defines the terrace edge, creates many small social seating bays and is covered in <strong>trencadís</strong>, mosaic made from broken ceramic fragments. Josep Maria Jujol played an important role in its energetic colour and composition.</p>
+    <div class="look"><strong>Notice:</strong> the park's fantasy elements often perform practical jobs. Columns support roads, mosaics weatherproof surfaces, curves guide movement and the terrace manages rainwater.</div>
+  </div>
+  <h3>The other Modernisme: Domènech i Montaner's Palau and Sant Pau</h3>
+<p>Gaudí was not Modernisme's only master. Lluís Domènech i Montaner built the movement's two UNESCO-listed public masterpieces, and both are optional indoor stops on this itinerary. The <strong>Palau de la Música Catalana</strong> (1908) was built not for opera or aristocracy but for the Orfeó Català choral society — a concert hall as a statement that Catalan civic culture deserved a palace, crowned by its stained-glass skylight like an inverted drop of sun.</p>
+<p>The <strong>Hospital de la Santa Creu i Sant Pau</strong> applied the same conviction to medicine: a garden city of ornamented pavilions connected by underground corridors, designed on the belief that beauty, light and air help patients heal. It worked as a functioning hospital until 2009 — Gaudí himself died there in 1926 after his tram accident, three streets from his unfinished basilica.</p>
+<p><strong>Notice:</strong> where Gaudí's forms feel geological and structural, Domènech i Montaner's feel civic and floral — comparing the two is the quickest way to see that Modernisme was a movement, not one man's style.</p>
+<p class="source-note">Section sources: <a href="https://sagradafamilia.org/en/history-of-the-temple">Sagrada Família — History</a> · <a href="https://sagradafamilia.org/documents/20142/1000561/Booklet_04.pdf/5eb8514a-7bd2-77d0-15dc-9c9c0315cf23">Sagrada Família — Architecture booklet</a> · <a href="https://parkguell.barcelona/en/park-guell/over-hundred-years-history">Park Güell — History</a> · <a href="https://parkguell.barcelona/en/park-guell/gaudi-and-guell">Park Güell — Gaudí and Güell</a></p>
+</section>
+
+<section class="section" id="oldcity">
+  <div class="head"><div class="badge">5</div><div><small>Walking days</small><h2>Gothic Quarter and El Born: real medieval city, later reinvention and difficult memory</h2></div></div>
+  <div class="why"><strong>Why it is famous:</strong> this area contains genuine Roman and medieval fabric, but also 19th- and 20th-century restoration designed to create a more dramatic “Gothic” image. That mixture is part of the story, not a flaw to hide.</div>
+  <figure class="media"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Gothic_Quarter,_Barcelona.JPG?width=1500" alt="Street in Barcelona Gothic Quarter"><figcaption>The dense streets of the Gothic Quarter. <a href="https://commons.wikimedia.org/wiki/File:Gothic_Quarter,_Barcelona.JPG">Photo source</a></figcaption></figure>
+
+  <div class="card">
+    <h3>The “Gothic Quarter” is partly a modern idea</h3>
+    <p>The historic centre truly contains medieval streets, churches and palaces. But the label <strong>Barri Gòtic</strong> became widely promoted in the early 20th century, when Barcelona deliberately reshaped the area as a coherent heritage district.</p>
+    <p>Buildings were restored, façades were altered and architectural fragments were relocated. The famous bridge over Carrer del Bisbe looks medieval but was built in 1928 in neo-Gothic style by Joan Rubió i Bellver.</p>
+    <p>This does not make the quarter “fake.” It makes it a historical palimpsest: Roman foundations, medieval structures, later rebuilding and modern tourism layered together.</p>
+    <div class="look"><strong>Notice:</strong> ask not only “How old is this?” but “When was this version of the past created, and why did the city want it to look medieval?”</div>
+  </div>
+
+  <div class="card">
+    <h3>Barcelona Cathedral: Saint Eulalia, 13 geese and a façade younger than it looks</h3>
+    <p>The cathedral is dedicated to the Holy Cross and Saint Eulalia, one of Barcelona's patron saints. The main Gothic structure was built from the late 13th through the 15th century, but the elaborate front façade and central spire were completed much later in neo-Gothic style.</p>
+    <p>According to Christian tradition, Eulalia was a 13-year-old martyr during Roman persecution. The cathedral cloister keeps <strong>13 white geese</strong>, representing her age. The geese are a living devotional tradition rather than simply a tourist novelty.</p>
+    <p>Her crypt sits beneath the high altar, making the saint physically central to the building's sacred geography.</p>
+    <div class="legend"><strong>Legend versus building history:</strong> the martyr stories belong to religious tradition; the cathedral itself is a real accumulation of Roman, early Christian, Romanesque, Gothic and neo-Gothic phases.</div>
+  </div>
+
+  <div class="card">
+    <h3>Plaça de Sant Felip Neri: one quiet square, one devastating air raid</h3>
+    <p>On 30 January 1938, during the Spanish Civil War, Italian aircraft supporting Franco's forces bombed Barcelona. A bomb struck Sant Felip Neri, where children were sheltering. A second explosion hit during rescue efforts. Forty-two people were killed, many of them children.</p>
+    <p>The pockmarks visible on the church façade are evidence of the blast. Francoist narratives later attempted to attribute the damage to executions by anti-clerical forces, but the marks belong to the bombing.</p>
+    <p>The square's present form was also reconstructed after surrounding buildings were destroyed. Its beauty and calm therefore coexist with a site of civilian trauma.</p>
+    <div class="dark-note"><strong>When you stand there:</strong> the fountain, schoolchildren and quiet stone make the history more unsettling, not less. It is one of the clearest places to understand that Barcelona was a bombed civilian city.</div>
+  </div>
+
+  <div class="card">
+    <h3>Santa Maria del Mar: the church of a maritime neighbourhood</h3>
+    <p>Construction began in 1329 when Barcelona was a major Mediterranean power. Unlike cathedrals that took centuries and changed style repeatedly, Santa Maria del Mar was completed with unusual speed and therefore has a striking architectural unity.</p>
+    <p>The church is closely associated with the merchants, craftsmen, fishermen and port workers of La Ribera. The <strong>bastaixos</strong>, labourers who moved heavy goods at the port, are traditionally remembered for carrying stone used in construction. Small carved figures of porters can be seen on the main doors.</p>
+    <p>Inside, the wide spacing of slender columns creates a calm, open volume typical of Catalan Gothic architecture.</p>
+    <div class="look"><strong>Notice:</strong> from the entrance, the columns do not block the interior into many narrow lanes. The eye reads the church as one large communal space.</div>
+  </div>
+
+  <div class="card">
+    <h3>El Born: a market roof sheltering a demolished city</h3>
+    <p>The iron-and-glass Born market opened in the 19th century. During later redevelopment, archaeologists uncovered an extensive section of the neighbourhood that existed around 1700.</p>
+    <p>These remains include streets, house foundations, workshops and drainage. They reveal a prosperous, densely organised district rather than a vague ruin. After 1714, residents were displaced and buildings cleared for the military citadel.</p>
+    <p>The site is powerful because three Barcelonas occupy the same footprint: the early-18th-century neighbourhood, the 19th-century industrial market and the modern memory centre.</p>
+  </div>
+  <p class="source-note">Section sources: <a href="https://catedralbcn.org/en/the-cathedral/traditions/">Barcelona Cathedral — Traditions</a> · <a href="https://www.santamariadelmar.barcelona/en/history/">Santa Maria del Mar — History</a> · <a href="https://www.barcelonabusturistic.cat/en/placa-de-sant-felip-neri">Barcelona Bus Turístic — Sant Felip Neri</a> · <a href="https://patrimoni.gencat.cat/en/collection/born-cultural-centre">Catalan Heritage — El Born</a></p>
+</section>
+
+<section class="section" id="montserrat">
+  <div class="head"><div class="badge">6</div><div><small>Day 5</small><h2>Montserrat: geology, pilgrimage and Catalan identity</h2></div></div>
+  <div class="why"><strong>Why it is famous:</strong> Montserrat combines one of Catalonia's most recognisable mountain forms with a millennium-old Benedictine monastery, the Black Madonna, an ancient choir and a powerful role in Catalan cultural memory.</div>
+  <figure class="media"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kloster-Montserrat_-_oben.JPG?width=1500" alt="Montserrat monastery among rock formations"><figcaption>The monastery set beneath Montserrat's serrated formations. <a href="https://commons.wikimedia.org/wiki/File:Kloster-Montserrat_-_oben.JPG">Photo source</a></figcaption></figure>
+
+  <div class="card">
+    <h3>The mountain: why it looks cut with a giant saw</h3>
+    <p><em>Montserrat</em> means “serrated mountain.” Its rounded towers and vertical cliffs were formed from conglomerate rock: pebbles and sediment cemented together, then lifted and eroded over millions of years.</p>
+    <p>Water widened fractures and removed softer material, leaving isolated pinnacles. The result is not volcanic, even though the shapes can look fantastical. Geology created natural caves, narrow passages and elevated shelves that encouraged hermit traditions.</p>
+    <div class="look"><strong>Notice:</strong> the rock is not smooth granite. Up close, it resembles concrete packed with rounded stones, revealing its sedimentary origin.</div>
+  </div>
+
+  <div class="card">
+    <h3>From hermitages to a monastery founded in 1025</h3>
+    <p>Religious settlement on the mountain predates the current monastery. In 1025, Abbot Oliba of Ripoll and Bishop of Vic founded a monastery at the hermitage of Santa Maria.</p>
+    <p>Pilgrimage expanded because of devotion to the Virgin of Montserrat and stories of miracles. Over time, the sanctuary became a place where religious practice, hospitality, music, manuscript culture and regional identity overlapped.</p>
+    <p>The monastery celebrated its millennium in 2025, but very little of what visitors see is untouched medieval fabric. War, fire, demolition and rebuilding repeatedly transformed the complex.</p>
+  </div>
+
+  <div class="card">
+    <h3>La Moreneta: the image at the centre of the mountain</h3>
+    <p>The Virgin of Montserrat, popularly called <strong>La Moreneta</strong> or “the little dark one,” is a Romanesque wooden image dating from around the 12th century. She sits frontally with the Christ Child on her lap, a formal pose associated with the Virgin as Throne of Wisdom.</p>
+    <p>Legend places the discovery of a sacred image in a cave around the year 880. When the image supposedly became impossible to move, a sanctuary was built where it remained. The legend explains the sacred geography, while the surviving sculpture belongs to the medieval Romanesque period.</p>
+    <p>Visitors traditionally touch or kiss the orb held by the Virgin. The rest of the statue is protected behind glass, making the orb the physical point of contact between pilgrim and image.</p>
+    <div class="legend"><strong>Legend and evidence:</strong> the discovery story is devotional tradition; the artwork itself can be dated by material, style and conservation history.</div>
+  </div>
+
+  <div class="card">
+    <h3>Destruction, rebuilding and survival</h3>
+    <p>Napoleonic forces devastated Montserrat in the early 19th century. Buildings and cultural collections suffered severe destruction, and the monastery was later suppressed during periods of anti-monastic policy.</p>
+    <p>The extensive rebuilding of the 19th and 20th centuries turned survival itself into part of Montserrat's identity. The complex visitors see is not a perfectly preserved medieval abbey, but a revived institution that rebuilt its physical and cultural authority.</p>
+  </div>
+
+  <div class="card">
+    <h3>The Escolania and why music matters here</h3>
+    <p>The Escolania is one of Europe's oldest boys' choirs, documented from the medieval period. It is both a choir and a music school, and its sound is inseparable from the sanctuary's identity.</p>
+<p><strong>For this trip:</strong> the choir is on its summer holiday throughout July and does not perform — the school building beside the basilica is still worth noticing, but do not wait for the 13:00 performance.</p>
+    <p>Music at Montserrat is not entertainment added for visitors. It forms part of monastic worship and centuries of pilgrimage ritual. Hearing the choir in the basilica connects the architecture, liturgy and institutional continuity of the abbey.</p>
+  </div>
+
+  <div class="card">
+    <h3>Montserrat as a Catalan symbol</h3>
+    <p>In 1881, the Virgin of Montserrat was proclaimed patron saint of Catalonia. The abbey's publishing, scholarship and use of Catalan language gave it cultural significance beyond religion.</p>
+    <p>During the Franco dictatorship, when Catalan public expression was restricted, Montserrat became one of the institutions able to maintain a degree of linguistic and cultural visibility. This is why the site can feel simultaneously spiritual, historical and political.</p>
+    <div class="look"><strong>Notice:</strong> Montserrat is famous not only because the scenery is dramatic. The mountain, image, monastery, choir and Catalan identity reinforce one another.</div>
+  </div>
+  <p class="source-note">Section sources: <a href="https://www.montserratvisita.com/en/history">Montserrat — History</a> · <a href="https://www.montserratvisita.com/en/spirituality/our-lady-of-montserrat">Montserrat — Our Lady</a></p>
+</section>
+
+<section class="section" id="pyrenees">
+  <div class="head"><div class="badge">7</div><div><small>Day 7</small><h2>Vic, Queralbs and Vall de Núria: Roman city, mountain village and political sanctuary</h2></div></div>
+  <div class="why"><strong>Why these stops are interesting together:</strong> the tour moves from an old market and bishop's city into a high Pyrenean landscape where geography controlled architecture, transport, pilgrimage and even Catalan political history.</div>
+  <div class="gallery">
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Temple_Rom%C3%A0_de_Vic_-_adre%C3%A7ada.jpg?width=1500" alt="Roman Temple of Vic"><figcaption>Vic's Roman temple, rediscovered inside a later castle. <a href="https://commons.wikimedia.org/wiki/File:Temple_Rom%C3%A0_de_Vic_-_adre%C3%A7ada.jpg">Photo source</a></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pla%C3%A7a_Major_de_Vic.jpg?width=1500" alt="Placa Major in Vic"><figcaption>Plaça Major, still functioning as a market space. <a href="https://commons.wikimedia.org/wiki/File:Pla%C3%A7a_Major_de_Vic.jpg">Photo source</a></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Valley_with_mountain_resort_-_Vall_de_N%C3%BAria.jpg?width=1500" alt="Vall de Nuria sanctuary and lake"><figcaption>Vall de Núria's enclosed mountain basin. <a href="https://commons.wikimedia.org/wiki/File:Valley_with_mountain_resort_-_Vall_de_N%C3%BAria.jpg">Photo source</a></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Santuari_Nuria_Fa%C3%A7ana.jpg?width=1500" alt="Facade of Vall de Nuria sanctuary"><figcaption>The sanctuary façade at Núria. <a href="https://commons.wikimedia.org/wiki/File:Santuari_Nuria_Fa%C3%A7ana.jpg">Photo source</a></figcaption></figure>
+  </div>
+
+  <div class="card">
+    <h3>Vic: Roman Ausa hidden inside a medieval castle</h3>
+    <p>Vic grew from the Roman town of <strong>Ausa</strong>. Its most famous ancient monument survived through an accident of reuse: the Roman temple was incorporated into the medieval castle of Montcada.</p>
+    <p>When the castle was demolished in 1882, workers discovered the Roman walls and columns embedded within it. Reconstruction continued for decades, turning the site into one of Spain's most complete surviving Roman temple forms.</p>
+    <p>This is an excellent example of how buildings survive by losing their original identity. The temple was preserved not because people protected Roman heritage, but because later builders found its masonry useful.</p>
+    <div class="look"><strong>Notice:</strong> the temple looks isolated today, but historically it sat within the civic centre of Roman Ausa and later disappeared inside a fortress.</div>
+  </div>
+
+  <div class="card">
+    <h3>Vic as a bishop's city and market city</h3>
+    <p>After the early medieval reconquest and reorganisation of the region, Vic became an important bishopric. Cathedral, episcopal institutions and religious art made it a centre of cultural authority.</p>
+    <p>Plaça Major expresses a different kind of power: exchange. Its large open centre and arcaded edges support one of Catalonia's best-known markets. The square is not a ceremonial plaza that happens to host stalls; trade is one of its oldest functions.</p>
+    <p>Vic is also closely associated with cured meats, especially <em>llonganissa de Vic</em>. Food here is connected to inland climate, livestock economy and market tradition rather than coastal cuisine.</p>
+  </div>
+
+  <div class="card">
+    <h3>Queralbs: architecture made for a steep and isolated landscape</h3>
+    <p>Queralbs sits above the Ribes valley at the last point accessible by road before Núria. Stone houses, compact lanes and sloping roofs reflect limited building space, local materials and snow.</p>
+    <p>The church of Sant Jaume was consecrated in the 10th century and rebuilt in the Romanesque period. Its distinctive porch uses a sequence of arches supported by columns. Later earthquake damage and alterations also form part of the building's history.</p>
+    <p>For centuries, movement beyond Queralbs depended on paths used by pilgrims, shepherds and pack animals. The village was therefore not just picturesque; it was the gateway between settled valley life and high mountain pasture.</p>
+  </div>
+
+  <div class="card">
+    <h3>Vall de Núria: sanctuary, fertility tradition and mountain legend</h3>
+    <p>Tradition connects Núria with Saint Giles, who supposedly lived in the valley around the year 700 and used a bell to call shepherds, a cross for prayer and a cooking pot to feed them. The sacred image was said to have been hidden and later rediscovered.</p>
+    <p>The bell and pot remain central symbols. A long-standing popular tradition associates the pot and bell with prayers for fertility. This is a good example of how a pilgrimage site can combine official religion with local ritual and intimate personal hopes.</p>
+    <p>The current sanctuary complex is largely modern, including the neo-Romanesque church consecrated in 1911. Its visual unity can therefore make the site appear older than much of its architecture actually is.</p>
+  </div>
+
+  <div class="card">
+    <h3>The rack railway: engineering an entrance to a valley with no road</h3>
+    <p>The Cremallera de Núria opened in 1931. It climbs more than 1,000 metres over roughly 12 kilometres, using a toothed rack system on the steepest section.</p>
+    <p>Because no road reaches the sanctuary, the railway is not just a scenic attraction. It is the valley's essential transport infrastructure, carrying visitors, workers and supplies through terrain that previously required a long mountain path.</p>
+    <div class="look"><strong>Notice:</strong> the journey is part of the site's meaning. The gradual climb recreates the separation that once made Núria feel remote and sacred.</div>
+  </div>
+
+  <div class="card">
+    <h3>The “Statute of Núria”: why this remote valley entered political history</h3>
+    <p>In June 1931, a commission completed a draft statute of autonomy for Catalonia at the hotel in Vall de Núria. The document became known as the <strong>Statute of Núria</strong>.</p>
+    <p>After negotiation and approval in Madrid, the 1932 statute restored a form of Catalan self-government during the Second Spanish Republic. It was later suppressed under Franco.</p>
+    <p>The setting mattered. Núria provided privacy, symbolic Catalan geography and distance from political pressure. A pilgrimage valley therefore became associated with one of the key constitutional moments of modern Catalan history.</p>
+    <div class="legend"><strong>Unexpected connection:</strong> the lake and sanctuary are not only scenic or religious. The name “Núria” also carries political meaning in Catalonia.</div>
+  </div>
+  <p class="source-note">Section sources: <a href="https://www.victurisme.cat/en/que-s2019hi-pot-fer/turisme-cultural/temple-roma">Vic Tourism — Roman Temple</a> · <a href="https://ripollesturisme.cat/en/romanic/esglesia-de-sant-jaume-de-queralbs/">Ripollès Tourism — Sant Jaume</a> · <a href="https://turistren.cat/en/trains/cremallera-de-nuria/discover-nuria-rack-railway/">Turistren — Núria Railway</a> · <a href="https://360.bnc.cat/en/bc-timeline/the-statute-of-autonomy-of-catalonia/">Biblioteca de Catalunya — Statute</a></p>
+</section>
+
+<section class="section" id="girona">
+  <div class="head"><div class="badge">8</div><div><small>Day 8</small><h2>Girona: a strategic city that survived by defending, adapting and remembering</h2></div></div>
+  <div class="why"><strong>Why it is famous:</strong> Girona compresses Roman walls, one of Europe's best-preserved Jewish quarters, the world's widest Gothic nave, colourful river houses and a long military history into a walkable old city.</div>
+  <div class="gallery">
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Panorama_Girona_Cases_del_Riu2.jpg?width=1500" alt="Girona skyline and Onyar houses"><figcaption>Onyar houses with the cathedral and Sant Feliu above. <a href="https://commons.wikimedia.org/wiki/File:Panorama_Girona_Cases_del_Riu2.jpg">Photo source</a></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/041_L'Onyar,_el_pont_de_les_Peixateries_Velles_i_la_Catedral_(Girona).JPG?width=1500" alt="Girona Onyar river bridge and cathedral"><figcaption>The Onyar and Peixateries Velles bridge. <a href="https://commons.wikimedia.org/wiki/File:041_L'Onyar,_el_pont_de_les_Peixateries_Velles_i_la_Catedral_(Girona).JPG">Photo source</a></figcaption></figure>
+  </div>
+
+  <div class="card">
+    <h3>Gerunda: a Roman fortress on the road to Gaul</h3>
+    <p>Roman Girona, <strong>Gerunda</strong>, occupied a narrow ridge beside the Onyar River. Its position controlled the Via Augusta route linking the Iberian Peninsula with southern Gaul.</p>
+    <p>The early city was compact and strongly fortified. The triangular core later called the Força Vella remained the centre of Girona for centuries. Medieval walls enlarged the defended area as population and institutions expanded.</p>
+    <div class="look"><strong>Notice:</strong> Girona's steep lanes are not accidental inconvenience. The city occupies defensible high ground, and the cathedral crowns the same strategic ridge.</div>
+  </div>
+
+  <div class="card">
+    <h3>Girona Cathedral: a 50-year argument produced the widest Gothic nave</h3>
+    <p>The cathedral preserves several eras at once: a Romanesque cloister and tower, a vast Gothic nave, a Baroque façade and monumental stairway.</p>
+    <p>The most famous feature is the single nave, almost 23 metres wide. Medieval builders originally considered a more conventional three-nave design. The decision to continue with one enormous span caused decades of debate because it challenged accepted structural practice.</p>
+    <p>The result is powerful because the interior has almost no visual interruption. Instead of moving through a sequence of narrow aisles, the visitor enters one immense hall.</p>
+    <p>The cathedral treasury also preserves the remarkable Creation Tapestry and medieval manuscripts, showing that the site was as much a centre of art and learning as a monumental church.</p>
+  </div>
+
+  <div class="card">
+    <h3>El Call: one of medieval Catalonia's most important Jewish communities</h3>
+    <p>Girona's Jewish quarter is known as the <strong>Call</strong>, from a Catalan term for a Jewish neighbourhood. Its narrow lanes preserve the spatial pattern of a community that existed here for centuries.</p>
+    <p>Girona became a major centre of Jewish scholarship. The best-known figure is Moses ben Nahman, or <strong>Nahmanides</strong>, a 13th-century rabbi, philosopher, physician and biblical commentator.</p>
+    <p>The preserved quarter can feel peaceful, but its history includes restrictions, segregation, violence and forced conversion. The anti-Jewish riots of 1391 were devastating, and the 1492 expulsion ended open Jewish communal life.</p>
+    <p>Doorways may preserve small slots where mezuzot once marked Jewish homes. These tiny traces are often more affecting than large monuments because they connect history to ordinary domestic life.</p>
+  </div>
+
+  <div class="card">
+    <h3>The “City of a Thousand Sieges”</h3>
+    <p>Girona's strategic location repeatedly drew armies. The city endured many sieges, most famously during the Peninsular War against Napoleonic forces in 1809.</p>
+    <p>Defenders resisted for months under bombardment, hunger and disease before capitulating. The memory of resistance became central to Girona's identity and explains the traditional title “immortal city.”</p>
+    <p>The restored wall walk today is scenic, but every tower and change in elevation relates to surveillance, artillery, access and defence.</p>
+  </div>
+
+  <div class="card">
+    <h3>The Onyar houses: Girona's most famous view was once its working edge</h3>
+    <p>The brightly coloured houses lining the Onyar create Girona's postcard image. They were not planned as a formal river façade. Homes grew and changed along the back edge of the medieval city, producing an irregular wall of balconies, extensions and painted surfaces.</p>
+    <p>Their beauty comes from accumulation rather than one architect's design. They express the everyday adaptation of a dense city to a river boundary.</p>
+  </div>
+  <p class="source-note">Section sources: <a href="https://www.girona.cat/turisme/eng/monuments.php">Girona City Council — Monuments</a> · <a href="https://www.girona.cat/turisme/eng/monuments_call.php">Girona City Council — Jewish Quarter</a> · <a href="https://catedraldegirona.cat/en/inici-home/">Girona Cathedral</a></p>
+</section>
+
+<section class="section" id="besalu">
+  <div class="head"><div class="badge">9</div><div><small>Day 8</small><h2>Besalú: a small town that once ruled a county</h2></div></div>
+  <div class="why"><strong>Why it is famous:</strong> Besalú looks like a compact medieval film set, but its bridge, churches and Jewish ritual bath survive because the town was once a politically important county capital.</div>
+  <div class="gallery">
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Besalu_and_its_bridge_-_Girona_-_Catalunya_-_Spain_-_panoramio.jpg?width=1500" alt="Besalu medieval bridge and town"><figcaption>The bridge approaching Besalú across the Fluvià. <a href="https://commons.wikimedia.org/wiki/File:Besalu_and_its_bridge_-_Girona_-_Catalunya_-_Spain_-_panoramio.jpg">Photo source</a></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Besal%C3%BA,_Medieval_Bridge_Tower.jpg?width=1500" alt="Tower on Besalu bridge"><figcaption>The fortified bridge tower. <a href="https://commons.wikimedia.org/wiki/File:Besal%C3%BA,_Medieval_Bridge_Tower.jpg">Photo source</a></figcaption></figure>
+  </div>
+
+  <div class="card">
+    <h3>The County of Besalú: why the town feels grander than its size</h3>
+    <p>Besalú was the capital of an independent medieval county before it was absorbed into the County of Barcelona in the early 12th century. Counts, monasteries, churches and trade gave the settlement regional importance far beyond its modern population.</p>
+    <p>The historic centre therefore contains an unusual concentration of Romanesque architecture. It is not a village decorated to appear medieval; it is the reduced footprint of a place that once exercised political authority.</p>
+  </div>
+
+  <div class="card">
+    <h3>The bridge: infrastructure, customs post and theatre of arrival</h3>
+    <p>The first bridge probably dates to the 11th century. Floods, warfare and rebuilding altered it repeatedly. Its famous angular route follows rock and river conditions rather than a straight ceremonial axis.</p>
+    <p>The central tower and gateway allowed movement to be watched and controlled. Bridges in medieval towns were economic instruments as well as engineering works: travellers, animals and goods could be inspected and taxed.</p>
+    <p>The bridge was damaged during the Spanish Civil War and later reconstructed, so the structure visitors photograph is both medieval and modern restoration.</p>
+    <div class="look"><strong>Notice:</strong> the bends make the crossing feel longer and reveal the town gradually. What looks picturesque also slowed movement and strengthened control.</div>
+  </div>
+
+  <div class="card">
+    <h3>The mikveh: a hidden room rediscovered by accident</h3>
+    <p>Besalú's underground <strong>mikveh</strong> is a Jewish ritual bath supplied by naturally flowing “living water.” It was used for forms of ritual purification, not ordinary washing.</p>
+    <p>The chamber was discovered accidentally in 1964 during excavation for a well. Rabbis were consulted to confirm its function. For years, the room had reportedly been used in connection with dye storage, its original meaning forgotten.</p>
+    <p>The bath is one of the best-preserved medieval mikvaot in Europe and one of very few known on the Iberian Peninsula. Its survival gives physical evidence of a Jewish community that lived in Besalú for more than five centuries.</p>
+    <div class="legend"><strong>Why it is so important:</strong> many Jewish buildings were destroyed, converted or built over after expulsion. The mikveh survived below ground, protected partly because people no longer knew what it was.</div>
+  </div>
+
+  <div class="card">
+    <h3>Reading the town beyond the bridge</h3>
+    <p>The bridge dominates photographs, but Besalú's historical importance is also visible in the monastery of Sant Pere, the former hospital church of Sant Julià, civic arcades and the compact Jewish quarter near the river.</p>
+    <p>The mix of religious, commercial and defensive buildings reveals a town where pilgrims, merchants, monks, officials and Jewish residents occupied overlapping spaces.</p>
+  </div>
+  <p class="source-note">Section sources: <a href="https://ohgarrotxa.com/en/indret-interes/9-old-bridge-of-besalu/">Garrotxa Tourism — Bridge</a> · <a href="https://ohgarrotxa.com/en/indret-interes/11-micve-and-sinagoga-de-besalu/">Garrotxa Tourism — Mikveh</a> · <a href="https://www.visitpirineus.com/en/node/82">Visit Pirineus — Bridge history</a></p>
+</section>
+
+<section class="section" id="castellfollit">
+  <div class="head"><div class="badge">10</div><div><small>Day 8</small><h2>Castellfollit de la Roca: a village whose history begins with lava</h2></div></div>
+  <div class="why"><strong>Why it is famous:</strong> Castellfollit is one of Spain's most dramatic examples of geology determining settlement. The village forms a narrow line of houses on a basalt cliff above two rivers.</div>
+  <figure class="media"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Castellfollit_de_la_Roca_-_Vista_frontal.jpg?width=1500" alt="Castellfollit de la Roca on basalt cliff"><figcaption>The village aligned along the basalt ridge. <a href="https://commons.wikimedia.org/wiki/File:Castellfollit_de_la_Roca_-_Vista_frontal.jpg">Photo source</a></figcaption></figure>
+
+  <div class="card">
+    <h3>Two lava flows created the cliff</h3>
+    <p>Castellfollit lies within the Garrotxa volcanic zone. Lava flows from different periods cooled into basalt. As lava contracted, it fractured into columns and blocks.</p>
+    <p>Over thousands of years, the Fluvià and Toronell rivers cut into the surrounding material, exposing a cliff more than 50 metres high and close to a kilometre long.</p>
+    <p>The visible layers are therefore a geological timeline. Different textures and colours record separate volcanic events and later erosion.</p>
+    <div class="look"><strong>Notice:</strong> the cliff face shows vertical column-like fractures. These are cooling joints in basalt, not human-cut stone walls.</div>
+  </div>
+
+  <div class="card">
+    <h3>Why build a town on such a narrow ridge?</h3>
+    <p>The position offered natural defence and control over routes through the valleys. Building space was limited, so houses formed a long, compact street aligned with the cliff.</p>
+    <p>Local basalt was used in construction, visually tying the settlement to the rock beneath it. The town appears to grow from the cliff because its buildings literally reuse the same volcanic material.</p>
+    <p>At the far end, the old church of Sant Salvador occupies the most dramatic viewpoint. Religious and civic presence were placed at the edge where the geology provides maximum visibility.</p>
+  </div>
+
+  <div class="card">
+    <h3>The cliff is not only scenery; it supported work and industry</h3>
+    <p>Basalt extraction became an important local activity, especially from the 19th century. The stone was valued for paving and construction because of its hardness and durability.</p>
+    <p>This industrial history complicates the postcard image. The same volcanic formation that attracted settlement and visitors also provided a raw material for livelihoods.</p>
+    <div class="legend"><strong>The key idea:</strong> at Castellfollit, geology is the main historical actor. It shaped defence, street layout, building material, work and the village's modern fame.</div>
+  </div>
+  <p class="source-note">Section sources: <a href="https://ohgarrotxa.com/en/indret-interes/8-basalt-cliff-of-castellfollit-de-la-roca/">Garrotxa Tourism — Basalt cliff</a> · <a href="https://www.catalunya.com/en/continguts/territori/castellfollit-de-la-roca-2-1-170464">Catalonia — Castellfollit</a></p>
+</section>
+
+<section class="section" id="sources">
+  <div class="head"><div class="badge">✓</div><div><small>Reference</small><h2>Main research sources</h2></div></div>
+  <div class="card">
+    <p>The page prioritises official tourism offices, municipal heritage sites, religious institutions and regional cultural authorities. Image links point to Wikimedia Commons file pages.</p>
+    <ul class="source-list">
+      <li><a href="https://visittossa.com/en/cultural-heritage/tossa-throughout-time/the-walled-vila-vella/">Tossa de Mar Tourism — The walled Vila Vella</a></li>
+      <li><a href="https://www.catalunya.com/en/continguts/patrimoni-cultural/ametllers-de-tossa-roman-villa-17-16003-573257">Catalonia Tourism — Els Ametllers Roman villa</a></li>
+      <li><a href="https://visittossa.com/en/experiences/get-inspired/">Tossa de Mar Tourism — Marc Chagall and the “blue paradise”</a></li>
+      <li><a href="https://www.barcelonaturisme.com/wv3/en/page/43/history-of-barcelona.html">Barcelona Tourism — History of Barcelona</a></li>
+      <li><a href="https://www.meet.barcelona/en/visit-and-love-it/barcelona-history/roman-barcino">Barcelona City Council — Roman Barcino</a></li>
+      <li><a href="https://sagradafamilia.org/en/history-of-the-temple">Sagrada Família — History of the Basilica</a></li>
+      <li><a href="https://parkguell.barcelona/en/park-guell/over-hundred-years-history">Park Güell — More than 100 years of history</a></li>
+      <li><a href="https://catedralbcn.org/en/the-cathedral/traditions/">Barcelona Cathedral — Traditions</a></li>
+      <li><a href="https://www.santamariadelmar.barcelona/en/history/">Santa Maria del Mar — History</a></li>
+      <li><a href="https://patrimoni.gencat.cat/en/collection/born-cultural-centre">Catalan Heritage — Born Cultural Centre</a></li>
+      <li><a href="https://www.montserratvisita.com/en/history">Montserrat — History</a></li>
+      <li><a href="https://www.victurisme.cat/en/que-s2019hi-pot-fer/turisme-cultural/temple-roma">Vic Tourism — Roman Temple</a></li>
+      <li><a href="https://ripollesturisme.cat/en/romanic/esglesia-de-sant-jaume-de-queralbs/">Ripollès Tourism — Sant Jaume de Queralbs</a></li>
+      <li><a href="https://turistren.cat/en/trains/cremallera-de-nuria/discover-nuria-rack-railway/">Turistren — Núria rack railway</a></li>
+      <li><a href="https://www.girona.cat/turisme/eng/monuments_call.php">Girona City Council — Jewish Quarter</a></li>
+      <li><a href="https://catedraldegirona.cat/en/inici-home/">Girona Cathedral — Official site</a></li>
+      <li><a href="https://ohgarrotxa.com/en/indret-interes/9-old-bridge-of-besalu/">Garrotxa Tourism — Besalú bridge</a></li>
+      <li><a href="https://ohgarrotxa.com/en/indret-interes/11-micve-and-sinagoga-de-besalu/">Garrotxa Tourism — Besalú mikveh and synagogue</a></li>
+      <li><a href="https://ohgarrotxa.com/en/indret-interes/8-basalt-cliff-of-castellfollit-de-la-roca/">Garrotxa Tourism — Castellfollit basalt cliff</a></li>
+    </ul>
+  </div>
+</section>
+</div>
+<a class="totop" href="#top" aria-label="Back to top">↑</a>
+<footer>Detailed historical companion · remote images require an internet connection.</footer>
+</body>
+</html>
