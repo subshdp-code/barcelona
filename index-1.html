@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Barcelona &amp; Costa Brava — Travel Guide · v19</title>
+<style>
+  :root {
+    --sand: #FBF7F0;
+    --sand-deep: #F3EBDD;
+    --ink: #2C2A26;
+    --ink-soft: #5A554C;
+    --terracotta: #C56B4A;
+    --terracotta-deep: #A8543A;
+    --sea: #3E7C8C;
+    --sea-deep: #2E5E6B;
+    --sun: #E0A23C;
+    --line: #E5DCCC;
+    --card: #FFFFFF;
+    --shadow: 0 4px 24px rgba(60, 50, 35, 0.08);
+    --shadow-soft: 0 2px 12px rgba(60, 50, 35, 0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--sand);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 56px 20px 118px;
+    background: linear-gradient(170deg, var(--sand-deep) 0%, var(--sand) 100%);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .skyline {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    width: 100%;
+    height: 108px;
+    display: block;
+    color: var(--terracotta);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  .hero .skyline svg { width: 100%; height: 100%; display: block; }
+  .hero .eyebrow {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--terracotta); font-weight: 600; margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px; line-height: 1.1; font-weight: 700;
+    color: var(--ink); margin-bottom: 18px; letter-spacing: -0.01em;
+  }
+  .hero h1 .accent { color: var(--sea); font-style: italic; }
+  .hero .climate {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 999px; padding: 9px 18px;
+    font-size: 14px; color: var(--ink-soft); box-shadow: var(--shadow-soft);
+  }
+  .hero .climate svg { width: 18px; height: 18px; color: var(--sun); }
+  .hero .climate strong { color: var(--ink); font-weight: 700; }
+
+  /* NAV GRID */
+  .nav-section { padding: 36px 0 28px; }
+  .nav-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .nav-item {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 9px; padding: 18px 8px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    text-decoration: none; color: var(--ink);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    box-shadow: var(--shadow-soft);
+  }
+  .nav-item:hover, .nav-item:focus-visible {
+    transform: translateY(-3px); box-shadow: var(--shadow);
+    border-color: var(--terracotta); outline: none;
+  }
+  .nav-item .icon { width: 30px; height: 30px; color: var(--sea); }
+  .nav-item .label { font-size: 12px; font-weight: 600; text-align: center; line-height: 1.25; }
+
+  /* SECTION */
+  .section { padding: 40px 0; scroll-margin-top: 16px; }
+  .section + .section { border-top: 1px solid var(--line); }
+  .section-head { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+  .section-head .badge {
+    flex-shrink: 0; width: 46px; height: 46px; border-radius: 13px;
+    background: var(--terracotta); display: flex; align-items: center; justify-content: center;
+    color: #fff; box-shadow: var(--shadow-soft);
+  }
+  .section-head .badge.sea { background: var(--sea); }
+  .section-head .badge.sun { background: var(--sun); }
+  .section-head .badge svg { width: 24px; height: 24px; }
+  .section-head h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.15;
+  }
+  .section-head .sub {
+    display: block; font-family: -apple-system, sans-serif;
+    font-size: 13px; font-weight: 500; color: var(--terracotta);
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2px;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+    overflow: hidden; box-shadow: var(--shadow-soft); margin-bottom: 20px;
+  }
+  .card-img {
+    width: 100%; height: 200px;
+    background: linear-gradient(135deg, var(--sea) 0%, var(--sea-deep) 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.55); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .card-img.alt { background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-deep) 100%); }
+  .card-img.warm { background: linear-gradient(135deg, var(--sun) 0%, var(--terracotta) 100%); }
+  .card-body { padding: 22px 24px 26px; }
+  .card-body h3 { font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+  .card-body .card-meta {
+    font-size: 13px; color: var(--terracotta); font-weight: 600;
+    letter-spacing: 0.04em; margin-bottom: 12px;
+  }
+  .card-body p { color: var(--ink-soft); font-size: 15px; margin-bottom: 14px; }
+  .card-body p:last-child { margin-bottom: 0; }
+
+  /* INFO LIST — stacked (key above value) */
+  .info-list { list-style: none; }
+  .info-list li {
+    padding: 12px 0; border-bottom: 1px solid var(--line);
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-list .key {
+    display: block; font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--terracotta); margin-bottom: 3px;
+  }
+  .info-list .val { display: block; font-size: 15px; color: var(--ink); }
+
+  /* stacked detail rows (each fact on its own line) */
+  .detail-rows { display: block; margin-top: 2px; }
+  .detail-rows .row {
+    display: flex; gap: 8px; padding: 5px 0; font-size: 15px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .detail-rows .row:last-child { border-bottom: none; }
+  .detail-rows .row .r-label {
+    flex-shrink: 0; width: 84px; color: var(--ink-soft); font-size: 13px;
+    font-weight: 600; padding-top: 1px;
+  }
+  .detail-rows .row .r-value { color: var(--ink); font-weight: 500; }
+
+  /* WALKING ROUTE — meta bar */
+  .route-meta {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px;
+  }
+  .route-meta .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--sand-deep); border-radius: 11px; padding: 9px 13px;
+    font-size: 13px; color: var(--ink); font-weight: 500;
+  }
+  .route-meta .chip svg { width: 16px; height: 16px; color: var(--sea); flex-shrink: 0; }
+  .route-meta .chip strong { font-weight: 700; }
+
+  .route-intro { color: var(--ink-soft); font-size: 15px; margin-bottom: 22px; }
+
+  /* map embed */
+  .route-map {
+    width: 100%; height: 300px; border: 0; display: block;
+    border-radius: 14px; margin-bottom: 6px;
+  }
+  .map-caption {
+    font-size: 12px; color: var(--ink-soft); text-align: center;
+    margin-bottom: 26px;
+  }
+  .map-caption a { color: var(--sea); font-weight: 600; text-decoration: none; }
+
+  /* tappable map link button (for food/spot cards) */
+  .map-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 14px; padding: 10px 16px;
+    background: var(--sea); color: #fff;
+    border-radius: 11px; text-decoration: none;
+    font-size: 14px; font-weight: 600;
+    box-shadow: var(--shadow-soft);
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+  .map-link:hover, .map-link:focus-visible {
+    background: var(--sea-deep); transform: translateY(-1px); outline: none;
+  }
+  .map-link svg { width: 16px; height: 16px; }
+
+  /* WARNING / NOTICE BANNER */
+  .notice {
+    display: flex; gap: 11px; align-items: flex-start;
+    background: #FBF1E3; border: 1px solid #EAD3AE;
+    border-left: 4px solid var(--sun);
+    border-radius: 12px; padding: 13px 15px;
+    margin: 4px 0 20px;
+  }
+  .notice svg { width: 20px; height: 20px; color: #B9791C; flex-shrink: 0; margin-top: 1px; }
+  .notice .n-body { font-size: 14px; color: var(--ink); line-height: 1.55; }
+  .notice .n-body strong { font-weight: 700; }
+
+  /* GETTING THERE block */
+  .getting-there {
+    background: var(--sand-deep); border-radius: 12px;
+    padding: 14px 16px; margin: 4px 0 16px;
+  }
+  .gt-head {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 15px; color: var(--ink); margin-bottom: 10px;
+  }
+  .gt-head svg { width: 18px; height: 18px; color: var(--sea); }
+  .gt-list { list-style: none; }
+  .gt-list li {
+    display: flex; gap: 10px; padding: 8px 0;
+    border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink-soft);
+  }
+  .gt-list li:last-child { border-bottom: none; }
+  .gt-tag {
+    flex-shrink: 0; width: 62px; height: fit-content;
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--ink-soft); background: var(--card);
+    border: 1px solid var(--line); border-radius: 7px;
+    padding: 3px 6px; text-align: center;
+  }
+  .gt-tag.best { background: #EAF3EC; border-color: #CDE6D2; color: #2F6B3D; }
+  .gt-tag.avoid { background: #FBEEE9; border-color: #EAD0C4; color: #A8543A; }
+  .gt-text strong { color: var(--ink); font-weight: 700; }
+
+  /* numbered detailed stops */
+  .stops { list-style: none; counter-reset: stop; }
+  .stop {
+    position: relative; padding-left: 52px; padding-bottom: 30px;
+  }
+  .stop:before {
+    counter-increment: stop; content: counter(stop);
+    position: absolute; left: 0; top: 0;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--terracotta); color: #fff;
+    font-size: 16px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; z-index: 2;
+  }
+  .stop:after {
+    content: ""; position: absolute; left: 16px; top: 38px; bottom: -4px;
+    width: 2px; background: var(--line); z-index: 1;
+  }
+  .stop:last-child { padding-bottom: 0; }
+  .stop:last-child:after { display: none; }
+
+  .stop-photo {
+    width: 100%; height: 190px; object-fit: cover;
+    border-radius: 13px; margin-bottom: 14px; display: block;
+    background: var(--sand-deep);
+  }
+  .stop h4 {
+    font-size: 18px; font-weight: 700; margin-bottom: 3px; line-height: 1.25;
+  }
+  .stop .where {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 13px; color: var(--sea-deep); font-weight: 600; margin-bottom: 10px;
+  }
+  .stop .where svg { width: 14px; height: 14px; }
+  .stop p { color: var(--ink-soft); font-size: 15px; margin-bottom: 12px; }
+  .stop p:last-child { margin-bottom: 0; }
+
+  .stop-facts {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;
+  }
+  .stop-facts .fact {
+    font-size: 12px; color: var(--ink-soft);
+    background: var(--sand); border: 1px solid var(--line);
+    border-radius: 8px; padding: 5px 9px;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .stop-facts .fact svg { width: 13px; height: 13px; color: var(--terracotta); }
+  .stop-facts .fact.free { background: #EAF3EC; border-color: #CDE6D2; color: #2F6B3D; }
+  .stop-facts .fact.free svg { color: #2F6B3D; }
+  .stop-facts .fact.ticket { background: #FBF1E8; border-color: #EAD7C4; color: #9A5A2E; }
+  .stop-facts .fact.ticket svg { color: #9A5A2E; }
+
+  .stop-tip, .stop-walk {
+    border-radius: 11px; padding: 11px 13px; font-size: 14px;
+    display: flex; gap: 9px; margin-top: 10px;
+  }
+  .stop-tip { background: #FBF1E8; color: var(--ink); }
+  .stop-tip svg { width: 17px; height: 17px; color: var(--terracotta); flex-shrink: 0; margin-top: 2px; }
+  .stop-walk { background: var(--sand-deep); color: var(--ink-soft); font-size: 13px; align-items: center; }
+  .stop-walk svg { width: 16px; height: 16px; color: var(--sea); flex-shrink: 0; }
+  .stop-tip strong, .stop-walk strong { color: var(--ink); }
+
+  /* PILL */
+  .pill {
+    display: inline-block; padding: 5px 12px;
+    background: var(--sand-deep); border-radius: 999px;
+    font-size: 12px; font-weight: 600; color: var(--ink-soft); margin: 0 6px 6px 0;
+  }
+
+  /* BACK TO TOP */
+  .totop {
+    position: fixed; bottom: 20px; right: 20px;
+    width: 46px; height: 46px; border-radius: 50%;
+    background: var(--ink); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; box-shadow: var(--shadow);
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 50;
+  }
+  .totop.show { opacity: 1; pointer-events: auto; }
+  .totop svg { width: 22px; height: 22px; }
+
+  .placeholder-note {
+    text-align: center; font-size: 13px; color: var(--ink-soft);
+    font-style: italic; padding: 30px 0; opacity: 0.7;
+  }
+  footer {
+    text-align: center; padding: 40px 20px 60px;
+    font-size: 13px; color: var(--ink-soft); border-top: 1px solid var(--line);
+  }
+  @media (max-width: 520px) {
+    .hero h1 { font-size: 34px; }
+    .nav-grid { grid-template-columns: repeat(3, 1fr); }
+    .section-head h2 { font-size: 24px; }
+  }
+
+
+  /* ITINERARY-FIRST ADDITIONS */
+  .daysub{color:var(--ink-soft);font-size:14px;margin:-2px 0 12px;}
+  .tl{list-style:none;margin:10px 0 14px 0;border-left:3px solid var(--sand-deep);padding-left:0;}
+  .tl li{display:flex;gap:12px;margin:0;padding:8px 0;border-left:3px solid var(--terracotta);margin-left:-3px;padding-left:14px;}
+  .tl .t{flex:0 0 86px;font-weight:700;color:var(--terracotta-deep);font-size:14px;padding-top:1px;}
+  .tl .d{flex:1;font-size:15px;color:var(--ink-soft);}
+  .warn{background:#FDEBE2;border-left:4px solid var(--terracotta);border-radius:0 11px 11px 0;padding:12px 14px;margin:14px 0;font-size:14.5px;color:var(--ink);}
+  .mini-note{background:var(--sand-deep);border-left:4px solid var(--sun);border-radius:0 11px 11px 0;padding:12px 14px;margin:14px 0;font-size:14.5px;color:var(--ink);}
+  .time-options{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px;}
+  .time-options .time-chip{background:var(--sand);border:1px solid var(--line);border-radius:10px;padding:8px 10px;min-width:92px;font-size:13.5px;color:var(--ink);box-shadow:var(--shadow-soft);}
+  .time-options .time-chip strong{display:block;color:var(--terracotta-deep);font-size:15px;}
+  .time-options .time-chip.target{background:#EAF3EC;border-color:#CDE6D2;}
+  .time-options .time-chip.warning{background:#FBEEE9;border-color:#EAD0C4;}
+  .option-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px;margin:12px 0;}
+  .option-card{background:var(--sand);border:1px solid var(--line);border-radius:13px;padding:13px 14px;font-size:14px;}
+  .option-card h4{margin:0 0 6px;font-size:15px;color:var(--sea-deep);}
+  .option-card p{margin:0 0 8px;color:var(--ink-soft);font-size:14px;}
+  .option-card .small{font-size:12.5px;color:var(--terracotta-deep);font-weight:600;}
+  .section.compact-top{padding-top:26px;}
+  .transport-card h4{margin:16px 0 5px;color:var(--sea-deep);font-size:16px;}
+  .transport-card p{font-size:14.5px;color:var(--ink-soft);}
+  .itinerary-source-note{font-size:12.5px;color:var(--ink-soft);margin-top:12px;}
+  @media(max-width:520px){.tl li{gap:8px;padding-left:10px}.tl .t{flex-basis:68px;font-size:13px}.tl .d{font-size:14px}.time-options .time-chip{min-width:80px;padding:7px 8px;font-size:12.8px}.option-grid{grid-template-columns:1fr}.card-body{padding:18px 18px 22px}}
+
+/* checklist rebuild */
+#checklist .cl-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:16px;
+  margin-top:6px;
+  width:100%;
+}
+#checklist .cl-card{
+  min-width:0;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:var(--shadow-soft);
+  padding:18px 18px 14px;
+  overflow:hidden;
+}
+#checklist .cl-card h3{
+  margin:0 0 10px;
+  font-size:17px;
+  line-height:1.35;
+}
+#checklist .cl-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+#checklist .cl-list li{
+  position:relative;
+  display:block;
+  min-width:0;
+  margin:0;
+  padding:9px 0 9px 28px;
+  border-left:none;
+  border-bottom:1px dashed var(--line);
+  font-size:14.5px;
+  line-height:1.55;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+#checklist .cl-list li:last-child{border-bottom:none}
+#checklist .cl-list li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  top:12px;
+  width:18px;
+  height:18px;
+  border-radius:6px;
+  background:var(--sand-deep);
+  color:var(--terracotta-deep);
+  font-size:11px;
+  line-height:18px;
+  font-weight:700;
+  text-align:center;
+}
+#checklist .cl-list strong{font-weight:700}
+@media(max-width:640px){
+  #checklist .cl-grid{gap:14px}
+  #checklist .cl-card{padding:16px 14px 12px}
+  #checklist .cl-list li{font-size:14px;padding-left:26px}
+}
+</style>
+</head>
+<body>
+<span id="top"></span>
+<!-- HERO -->
+<header class="hero">
+<div class="eyebrow">Summer 2026 · 12–20 July</div>
+<h1>Barcelona<br/>&amp; <span class="accent">Costa Brava</span></h1>
+<div class="climate">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+<span>July trip · <strong>12–20 Jul 2026</strong> · plan around 11:00–16:00 heat</span>
+</div>
+<div aria-hidden="true" class="skyline">
+<svg fill="none" preserveaspectratio="xMidYMax meet" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 -20 900 140">
+<!-- ground line -->
+<path d="M0 118 H900" stroke-width="2.5"></path>
+<!-- Arc de Triomf (left) -->
+<path d="M60 118 V70 h70 V118 M60 78 h70 M72 78 V118 M118 78 V118 M95 70 v-6"></path>
+<path d="M60 70 q35 -14 70 0"></path>
+<!-- low rooftops -->
+<path d="M150 118 V96 h40 V118 M150 96 l20 -12 l20 12"></path>
+<path d="M200 118 V104 h34 V118 M210 104 v-8 h4 v8"></path>
+<!-- Columbus column -->
+<path d="M262 118 V50 M256 118 h12 M258 56 h8 M262 50 a4 4 0 1 0 0.1 0"></path>
+<path d="M254 118 v-8 h16 v8"></path>
+<!-- Casa Batllo-ish roofline -->
+<path d="M300 118 V88 q10 -12 22 0 q10 12 22 0 V118 M336 82 a3 3 0 1 0 0.1 0"></path>
+<!-- SAGRADA FAMILIA (centre centrepiece) -->
+<!-- outer spires -->
+<path d="M394 118 V66 q6 -22 12 -34 q6 22 12 34 V118"></path>
+<path d="M422 118 V58 q7 -26 14 -40 q7 26 14 40 V118"></path>
+<!-- central tall spires -->
+<path d="M454 118 V50 q6 -30 11 -46 q6 30 11 46 V118"></path>
+<path d="M478 118 V42 q7 -34 14 -52 q7 34 14 52 V118"></path>
+<path d="M510 118 V50 q6 -30 11 -46 q6 30 11 46 V118"></path>
+<!-- right spires -->
+<path d="M542 118 V58 q7 -26 14 -40 q7 26 14 40 V118"></path>
+<path d="M570 118 V66 q6 -22 12 -34 q6 22 12 34 V118"></path>
+<!-- spire tips (little knobs) -->
+<circle cx="406" cy="30" r="2.5"></circle>
+<circle cx="436" cy="16" r="2.5"></circle>
+<circle cx="465" cy="2" r="3"></circle>
+<circle cx="492" cy="-12" r="3"></circle>
+<circle cx="521" cy="2" r="3"></circle>
+<circle cx="556" cy="16" r="2.5"></circle>
+<circle cx="582" cy="30" r="2.5"></circle>
+<!-- base body with door arches -->
+<path d="M394 118 V98 h188 V118 M412 118 v-12 q8 -10 16 0 v12 M540 118 v-12 q8 -10 16 0 v12 M476 118 v-15 q10 -11 20 0 v15"></path>
+<!-- Agbar / Glories tower (bullet) -->
+<path d="M636 118 V56 q0 -20 10 -30 q10 10 10 30 V118"></path>
+<path d="M636 100 h20 M636 84 h20 M636 68 h20"></path>
+<!-- MNAC dome (right) -->
+<path d="M700 118 V88 h80 V118 M700 88 q40 -30 80 0 M732 88 q8 -20 16 0 M740 62 v-8"></path>
+<path d="M710 118 v-18 h6 v18 M764 118 v-18 h6 v18"></path>
+<!-- far low buildings -->
+<path d="M800 118 V98 h30 V118 M834 118 V104 h28 V118 M810 98 v-6 h6 v6"></path>
+</svg>
+</div>
+</header>
+<div class="wrap">
+<!-- NAV GRID -->
+<nav aria-label="Jump to section" class="nav-section">
+<div class="nav-grid"><a class="nav-item" href="#checklist"><svg class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg><span class="label">Checklist</span></a><a class="nav-item" href="#days"><svg class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg><span class="label">Day by Day</span></a><a class="nav-item" href="#key-details"><svg class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg><span class="label">Key Details</span></a><a class="nav-item" href="#walking"><svg class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg><span class="label">Walking</span></a><a class="nav-item" href="#food"><svg class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg><span class="label">Food</span></a><a class="nav-item" href="#sights"><svg class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg><span class="label">Sights</span></a><a class="nav-item" href="history.html"><svg class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H6.5A2.5 2.5 0 0 0 4 20.5z"></path><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H14v15a3 3 0 0 1 3-3h.5A2.5 2.5 0 0 1 20 17.5z"></path></svg><span class="label">History</span></a><a class="nav-item" href="#events"><svg class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg><span class="label">What's On</span></a><a class="nav-item" href="#flights"><svg class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg><span class="label">Flights</span></a><a class="nav-item" href="#stays"><svg class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg><span class="label">Stays</span></a></div>
+</nav><section class="section compact-top" id="checklist">
+<div class="section-head">
+<div class="badge sun"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path><path d="M21 12a9 9 0 1 1-6.2-8.56"></path></svg></div>
+<div><span class="sub">Before leaving</span><h2>Travel Checklist</h2></div>
+</div>
+<p class="route-intro">The basics for this specific trip. Clothing lists stay separate.</p>
+<div class="cl-grid">
+<div class="cl-card">
+<h3>🛂 Documents</h3>
+<ul class="cl-list">
+<li><strong>Passports</strong> — carry-on, never checked. Also needed at <strong>Sagrada Família</strong> (tickets are nominative).</li>
+<li><strong>Schengen visa</strong> — double-check the sticker dates cover 12–20 Jul.</li>
+<li><strong>eVisa (BRPs are gone)</strong> — log into the UKVI account before flying: confirm the eVisa is <strong>linked to the passport you're travelling on</strong>, screenshot the status page, and generate a share code as backup (valid 90 days). Airlines check status against the passport electronically.</li>
+<li><strong>EasyJet boarding passes</strong> — in the app + screenshots saved offline.</li>
+<li><strong>All vouchers offline</strong> — hotel confirmations, Moventis bus tickets, Tot Montserrat, Klook (Pyrenees), GetYourGuide (Girona). Screenshot each one.</li>
+<li><strong>Travel insurance</strong> — policy doc + emergency number saved in phone.</li>
+<li><strong>GHIC cards</strong> if held — valid in Spain.</li>
+</ul>
+</div>
+<div class="cl-card">
+<h3>✈️ Flight-specific (EasyJet, BFS)</h3>
+<ul class="cl-list">
+<li><strong>Cabin bags</strong> — 1 small under-seat bag free per person (max 45×36×20 cm incl. handles/wheels). Large cabin bag or hold luggage only if it's on the booking — check the confirmation.</li>
+<li><strong>Liquids</strong> — assume the 100 ml rule at Belfast International: containers ≤100 ml in one clear resealable bag.</li>
+<li><strong>Online check-in done</strong> for both legs.</li>
+<li><strong>Power bank in cabin bag</strong> — never in the hold.</li>
+<li><strong>~02:40 taxi to Grand Central confirmed</strong> the evening before — the overnight Airport Express 300 runs <strong>hourly on the hour</strong>; you need the <strong>03:00</strong> departure (arrives BFS 03:35).</li><li><strong>Bus tickets: buy the Monthly Return</strong> (~£13.50pp — confirm current price), valid for the return leg within a month, so it covers 20 July too. Two singles cost more. Buy on the mLink app or the Grand Central ticket machines. A day return does NOT work — your return is 8 days later.</li>
+<li><strong>Light snacks + water bottle (empty through security)</strong> — no proper meal until Tossa early afternoon.</li>
+</ul>
+</div>
+<div class="cl-card">
+<h3>📱 Phone &amp; money</h3>
+<ul class="cl-list">
+<li><strong>Roaming ON</strong> — Settings → Mobile Data → Roaming. Lebara 10GB plan covers Spain at no extra charge.</li>
+<li><strong>Offline Google Maps</strong> — download Barcelona, Tossa de Mar, Montserrat, Girona areas.</li>
+<li><strong>Apps</strong> — FreeNow or Cabify (taxis), official <strong>Park Güell app</strong> (free audio guide — download + save offline, weak signal on the hill). Earphones.</li>
+<li><strong>Cash — withdraw at Barcelona Airport after arrival</strong> — target <strong>€120–150 total for two people</strong>. Use a bank-branded ATM such as <strong>CaixaBank / Servired</strong> rather than Euronet. With Monzo, always choose <strong>EUR / without conversion</strong>, never GBP. Monzo itself should be fee-free while within your account allowance, but the ATM may show its own fee — cancel and try another machine if it does. Split the cash between you. Use it for small market stalls, Montserrat candles/food stalls, Núria boat hire or small mountain/cove payments, beach toilets/lockers if needed, and tiny cafés/bars. Cards are still the main payment method for hotels, restaurants, taxis/apps, tickets and shops.</li>
+<li><strong>Two cards, kept separately</strong> — one stays in the hotel safe with the passports on beach days.</li>
+</ul>
+</div>
+<div class="cl-card">
+<h3>🧳 Practical</h3>
+<ul class="cl-list">
+<li><strong>Adapters</strong> — Spain uses type C/F (two round pins), 230 V.</li>
+<li><strong>Meds</strong> — original packaging, carry-on.</li>
+<li><strong>Water shoes</strong> — Tossa sea entry is rocky in places.</li>
+<li><strong>Trainers + one light jacket</strong> — Montserrat and Núria days. Núria is 15–18°C even in July.</li>
+<li><strong>Sun kit</strong> — high SPF, hats, refillable water bottles. July peak heat 11:00–16:00.</li>
+<li><strong>Dress code days</strong> — shoulders + knees covered for Montserrat basilica; no strapless tops, short shorts, or flip-flops in the monastery. Modest dress inside Barcelona Cathedral too.</li>
+</ul>
+</div>
+</div>
+</section><section class="section compact-top" id="days">
+<div class="section-head">
+<div class="badge"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg></div>
+<div><span class="sub">Itinerary</span><h2>Day by Day</h2></div>
+</div>
+<p class="route-intro">Times in bold are fixed or booked. Transport timings stay inside the relevant day, in the order they happen. No separate missed-connection board.</p>
+<div class="card"><div class="card-body">
+<h3>Day 1 · Sunday 12 July · Belfast → Tossa de Mar</h3>
+<p class="daysub">Departure day · airport bus · Costa Brava arrival</p>
+<p><span class="pill">Tossa ~28–30°C</span><span class="pill">Light arrival day</span><span class="pill">Airport bus: book ahead</span></p>
+<div class="warn"><strong>Not booked yet:</strong> buy this leg at <a href="https://compras.moventis.es">compras.moventis.es</a> before flying. The <strong>10:50</strong> fits the 09:50 landing; the 11:50 is the built-in fallback if immigration overruns.</div>
+<h4>Airport T2 → Tossa · official Moventis timetable (daily 01/07–31/08/2026)</h4>
+<table>
+<tr><th>Departs T2</th><th>Arrives Tossa</th></tr>
+<tr><td>09:50</td><td>12:05</td></tr>
+<tr><td><strong>10:50 · target</strong></td><td><strong>13:05</strong></td></tr>
+<tr><td>11:50</td><td>14:05</td></tr>
+<tr><td>12:50</td><td>15:05</td></tr>
+<tr><td>13:20</td><td>15:35</td></tr>
+<tr><td>14:20</td><td>16:35</td></tr>
+</table>
+<h4>Barcelona (Estació del Nord) → Tossa · reference</h4>
+<table>
+<tr><th>Departs Nord</th><th>Arrives Tossa</th></tr>
+<tr><td>09:30</td><td>10:50</td></tr>
+<tr><td>11:00</td><td>12:20</td></tr>
+<tr><td>11:45</td><td>13:05</td></tr>
+<tr><td>12:00</td><td>13:20</td></tr>
+<tr><td>17:00</td><td>18:20</td></tr>
+<tr><td>17:15</td><td>18:35</td></tr>
+<tr><td>18:30</td><td>19:50</td></tr>
+<tr><td>19:00</td><td>20:20</td></tr>
+<tr><td>20:30</td><td>21:50</td></tr>
+</table>
+<div class="mini-note">Source: official Moventis Line 2 timetable PDF, valid 01/07–31/08/2026 — <a href="https://www.moventis.es/sites/moventis/files/line/files/2_tossa_lloret_barcelona_juliol_agost_2026_0.pdf">download here</a>. Tickets: <a href="https://compras.moventis.es">compras.moventis.es</a>. Airport-origin buses also call at Estació del Nord en route (e.g. the 10:50 passes Nord at 11:45).</div>
+<ul class="tl">
+<li><span class="t">02:40</span><span class="d">Taxi to Belfast Grand Central Station.</span></li>
+<li><span class="t">03:00</span><span class="d"><strong>Airport Express 300</strong> from Grand Central to Belfast International. Overnight rhythm: hourly on the hour. Monthly Return ticket covers the return leg.</span></li>
+<li><span class="t">03:35</span><span class="d">Arrive BFS. Bag drop + security with buffer.</span></li>
+<li><span class="t">06:10</span><span class="d">✈️ <strong>EasyJet BFS → BCN departs.</strong></span></li>
+<li><span class="t">09:50</span><span class="d">Land Barcelona Terminal 2 / T2C. Allow 30–45 min for immigration + bags.</span></li>
+<li><span class="t">After bags</span><span class="d">💶 <strong>Withdraw €120–150 cash at Barcelona Airport.</strong> Use a bank-branded CaixaBank/Servired ATM, not Euronet. On the ATM choose <strong>EUR / decline conversion</strong>. If it displays an extra ATM fee or the queue risks the 10:50 bus, cancel and continue.</span></li>
+<li><span class="t">~10:30</span><span class="d">Exit T2C and walk toward T2B. Moventis/Sarfa bus stops are on the road between the T2 buildings.</span></li>
+<li><span class="t">10:50</span><span class="d">🚌 <strong>Moventis Line 2 / AERO.BCN to Tossa</strong> (per ticket once booked — table above). Direct · 2 h 15 · luggage underfloor.</span></li>
+<li><span class="t">13:05</span><span class="d">Arrive Tossa de Mar. Hotel Simeon is around 5 min walk from the bus station.</span></li>
+<li><span class="t">15:00</span><span class="d">Platja Gran / easy beach time. Water shoes useful because entry can be rocky.</span></li>
+<li><span class="t">19:00</span><span class="d">Vila Vella evening walk and bay viewpoint. Dinner one or two streets inland for better value than seafront tables.</span></li>
+</ul>
+
+<p class="maplink"><a href="https://www.google.com/maps/search/?api=1&amp;query=Tossa+de+Mar">Open Tossa de Mar in Google Maps →</a></p>
+</div></div>
+<div class="card"><div class="card-body">
+<h3>Day 2 · Monday 13 July · Tossa de Mar</h3>
+<p class="daysub">Full coastal day · choose one low-stress option</p>
+<p><span class="pill">Beach morning</span><span class="pill">Taxi option</span><span class="pill">Spa/rest option</span><span class="pill">Avoid 11:00–16:00 sun</span></p>
+<ul class="tl">
+<li><span class="t">Morning</span><span class="d">Café breakfast, then an easy swim/photo stop at <strong>Platja Gran</strong>, <strong>Mar Menuda</strong>, or <strong>Es Codolar</strong>. Keep passports and spare cards in the hotel.</span></li>
+<li><span class="t">12:00–16:00</span><span class="d">Lunch + hotel rest. Do not force beach or cliff path in peak sun.</span></li>
+<li><span class="t">After 16:00</span><span class="d">Pick one option below: taxi to a cove, easy local beach, or spa/rest day.</span></li>
+<li><span class="t">Evening</span><span class="d">Vila Vella / lighthouse view if energy allows, then dinner.</span></li>
+</ul>
+<h4>Tossa Monday options</h4>
+<div class="option-grid">
+<div class="option-card"><h4>Option A · Taxi to Cala Pola</h4><p>Small scenic cove, more Costa Brava feeling than Platja Gran. Best late afternoon to avoid the strongest heat.</p><div class="small">Ask Hotel Simeon to call taxi · bring water shoes · do not leave valuables unattended · <a href="https://www.google.com/maps/search/?api=1&amp;query=Cala+Pola+Tossa+de+Mar">📷 Photos</a></div></div>
+<div class="option-card"><h4>Option B · Glass-bottom boat to Cala Giverola ⭐</h4><p>Bigger, very photogenic bay — and the best way there is by sea: <strong>Fondo Cristal</strong> (Tossa family operator since 1985) runs glass-bottom boats from Platja Gran to Cala Giverola, return or one-way. Coves and cliffs from the water = the Costa Brava boat experience the Barcelona day tours sell, without the coach. Buy at their kiosk on Platja Gran (<a href="https://fondocristal.com">fondocristal.com</a>). Taxi is the fallback if seas are rough.</p><div class="small">Kiosk on Platja Gran · bring the waterproof phone pouch (€3–10 in the beach shops — test with a tissue first) · <a href="https://www.google.com/maps/search/?api=1&amp;query=Cala+Giverola+Tossa+de+Mar">📷 Photos</a></div></div>
+<div class="option-card"><h4>Option C · Local beach only</h4><p>Stay close: Mar Menuda or Es Codolar, then AC break. Best if you feel overheated or tired from travel.</p><div class="small">Lowest effort · no transport risk · <a href="https://www.google.com/maps/search/?api=1&amp;query=Platja+Mar+Menuda+Tossa+de+Mar">📷 Photos</a></div></div>
+<div class="option-card"><h4>Option D · Spa / slow day</h4><p>Use this if the weather is too much. Look for a hotel spa/day-pass locally or make it a café + shaded old-town day.</p><div class="small">Confirm day-pass availability directly before going</div></div>
+</div>
+<div class="warn"><strong>Beach belongings rule:</strong> towels, clothes and water can stay on the towel. Phone, card and cash go in a waterproof pouch or one person watches the bag.</div>
+</div></div>
+<div class="card"><div class="card-body">
+<h3>Day 3 · Tuesday 14 July · Tossa de Mar → Barcelona + Park Güell</h3>
+<p class="daysub">Transfer day · check-in · Park Güell 16:30</p>
+<p><span class="pill">Park Güell 16:30</span><span class="pill">Entry buffer until 17:00</span><span class="pill">Eat early</span></p>
+<div class="warn"><strong>Not booked yet:</strong> buy at <a href="https://compras.moventis.es">compras.moventis.es</a>. The <strong>11:10 → 12:30</strong> gives the most comfortable run-in to Park Güell at 16:30.</div>
+<h4>Tossa → Barcelona (Estació del Nord) · official Moventis timetable (daily 01/07–31/08/2026)</h4>
+<table>
+<tr><th>Departs Tossa</th><th>Arrives Nord</th></tr>
+<tr><td>10:40</td><td>12:00</td></tr>
+<tr><td><strong>11:10 · recommended</strong></td><td><strong>12:30</strong></td></tr>
+<tr><td>11:40</td><td>13:00</td></tr>
+<tr><td>12:10</td><td>13:30</td></tr>
+<tr><td>12:40</td><td>14:00</td></tr>
+</table>
+<div class="mini-note">Source: official Moventis Line 2 PDF (link in Day 1). Journey 1h20, direct. Once booked, move the exact time into the timeline above. The 12:40 leaves no slack before the 15:45 Park Güell taxi.</div>
+
+<ul class="tl">
+<li><span class="t">08:30–10:30</span><span class="d">Breakfast, short final Tossa walk, pack and check out of Hotel Simeon.</span></li>
+<li><span class="t">10:30</span><span class="d">Walk to Tossa bus station with luggage. Be at the stop before the ticketed Moventis/Sarfa time.</span></li>
+<li><span class="t">[ticket time]</span><span class="d"><strong>Moventis/Sarfa Tossa de Mar → Barcelona Estació del Nord.</strong> Insert the exact ticket time here once booked. The safe target is a late-morning bus that arrives Barcelona before 14:00.</span></li>
+<li><span class="t">[arrival]</span><span class="d">Arrive Barcelona Estació del Nord. Taxi to <strong>Hotel Sunotel Aston</strong>, leave bags / check in from 14:00.</span></li>
+<li><span class="t">14:00</span><span class="d">Quick Eixample lunch. Proper menú del día can wait if timing is tight today.</span></li>
+<li><span class="t">15:45</span><span class="d">Taxi to Park Güell. Estimated 15–20 min from Eixample; taxi avoids uphill walking.</span></li>
+<li><span class="t">16:30</span><span class="d">🦎 <strong>Park Güell timed entry.</strong> Entry allowed up to 30 min after slot, so 17:00 is the latest safe arrival.</span></li>
+<li><span class="t">18:30</span><span class="d">Dinner in Gràcia or short taxi back to Eixample. Gràcia footnote: the neighbourhood has a street named <strong>Carrer del Doctor Rizal</strong> — a photo under the street sign is an easy win if it's on the way to dinner.</span></li>
+<li><span class="t">Evening</span><span class="d">🎫 <strong>2-min errand at the nearest metro station</strong> (Hospital Clínic or Entença, both L5, 5–7 min from the hotel; or Rocafort L1, 10 min): at the machine, buy a cardboard <strong>T-mobilitat card (+€1)</strong> and load a <strong>T-Familiar (€11.50 · 8 rides · shareable — one card, both tap it)</strong>. This trip needs ~12–14 metro rides for two; top up the same card if it empties. Skip the T-Casual — it is strictly one person each. Thursday's city metro is already covered by the Tot cards.</span></li>
+</ul>
+<p class="routelink"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel%20Sunotel%20Aston%2C%20Barcelona&amp;destination=Park%20G%C3%BCell%2C%20Barcelona">Hotel → Park Güell route →</a></p>
+</div></div>
+<div class="card"><div class="card-body">
+<h3>Day 4 · Wednesday 15 July · Barcelona</h3>
+<p class="daysub">La Boqueria morning · indoor option · Sagrada Família late afternoon</p>
+<p><span class="pill">Sagrada 17:00</span><span class="pill">Boqueria before 09:30</span><span class="pill">Heat break</span></p>
+<ul class="tl">
+<li><span class="t">07:45</span><span class="d">🚇 <strong>Metro L1 from Rocafort (10 min walk from hotel) → Catalunya</strong>, 3 stops, then 3 min down La Rambla. Tap the T-Familiar once each. (Not bought yet? The Rocafort machine takes 2 minutes.)</span></li>
+<li><span class="t">08:00</span><span class="d"><strong>La Boqueria</strong> — focused 30–45 min stop before tour groups. Closed Sundays, so this is the correct day. Two minutes away at <strong>Plaça del Bonsuccés</strong>: the Catalan–Tagalog city marker on the building where <em>La Solidaridad</em> was published — worth the detour now or on the Ramblas walk (details in the route).</span></li>
+<li><span class="t">~09:00</span><span class="d">Exchange Tot Montserrat voucher at Plaça de Catalunya tourist office if not already done.</span></li>
+<li><span class="t">09:15–11:00</span><span class="d"><strong>Route 3 — Passeig de Gràcia exteriors</strong> (Block of Discord → La Pedrera). Do this corridor today: it sits on the Pride parade/Village axis that gets messy Friday evening and Saturday. Morning light is best on the facades anyway.</span></li>
+<li><span class="t">11:00–16:00</span><span class="d">Lunch + <strong>air-conditioned midday break</strong> — pick one: <strong>La Pedrera interior</strong> (~€28, right where the route ends), <strong>L'illa Diagonal mall</strong> (large, cool, food hall, short taxi/walk from the hotel), or the hotel room AC. Indoors only through the peak-heat window.</span></li>
+<li><span class="t">16:30</span><span class="d">🚇 <strong>Metro L5 from Hospital Clínic/Entença direct to Sagrada Família station</strong> — ~12 min, no changes, the exit surfaces beside the basilica. Taxi (~€10) if legs are done. Arrive by 16:45.</span></li>
+<li><span class="t">17:00</span><span class="d">⛪ <strong>Sagrada Família timed visit.</strong> Tickets are nominative; bring passports. Audio guide uses own phone + earphones.</span></li>
+</ul>
+</div></div>
+<div class="card"><div class="card-body">
+<h3>Day 5 · Thursday 16 July · Montserrat — DIY with Tot Montserrat</h3>
+<p class="daysub">Mountain day trip · monastery · Black Madonna · Sant Joan views</p>
+<p><span class="pill">Tot Montserrat booked</span><span class="pill">Trainers + light jacket</span><span class="pill">Shoulders + knees covered</span></p>
+<div class="warn"><strong>One rule shapes the day:</strong> the Throne of the Black Madonna closes daily 10:30–12:00. Plan around the 12:00 reopening.</div>
+<ul class="tl">
+<li><span class="t">~07:45</span><span class="d">Hotel → <strong>Plaça Espanya</strong>: taxi 5–10 min or 15–20 min walk (cool enough at this hour). Tot cards also cover Barcelona metro if preferred. Follow the FGC signs underground; validate Tot cards at the gates.</span></li>
+<li><span class="t">08:36 target</span><span class="d"><strong>FGC R5/R50 train toward Manresa</strong> from Plaça Espanya to Aeri de Montserrat or Monistrol de Montserrat, depending on cable car vs cremallera choice. <em>FGC = Ferrocarrils de la Generalitat de Catalunya — the Catalan regional railway, a separate system from the metro and Renfe, with its own underground platforms at Plaça Espanya (follow the orange FGC signs). R5 is its suburban line that serves Montserrat.</em></span></li>
+<li><span class="t">Stop choice</span><span class="d"><strong>Aeri de Montserrat</strong> stop → cable car (5 dramatic min, small cabin, queues, skip if vertigo) or <strong>Monistrol de Montserrat</strong> stop → cremallera rack railway (15 min, panoramic windows, <strong>sit on the left going up</strong>). The choice is fixed when validating the Tot cards. Both are timed to meet train arrivals.</span></li>
+<li><span class="t">On arrival</span><span class="d">Sant Joan funicular first if running, then Black Madonna queue at 12:00 sharp.</span></li>
+<li><span class="t">13:15</span><span class="d">Buffet lunch included in Tot Montserrat card. Drinks extra.</span></li>
+<li><span class="t">After lunch</span><span class="d">Museum / audiovisual space, then return when ready.</span></li>
+<li><span class="t">Return</span><span class="d">Cremallera/Aeri down, then R5 back to Plaça Espanya — trains roughly hourly. <strong>Photograph the return timetable board on arrival</strong> so the last comfortable connection is known all day. Photos: <a href="https://www.google.com/maps/search/?api=1&amp;query=Montserrat+Monastery">📷 Montserrat</a></span></li>
+</ul>
+
+<h4>FGC timing inside this day</h4>
+<div class="time-options"><div class="time-chip"><strong>07:36</strong>Early</div><div class="time-chip target"><strong>08:36</strong>Target</div><div class="time-chip"><strong>09:36</strong>Late start</div><div class="time-chip warning"><strong>10:36</strong>Too late for ideal flow</div><div class="time-chip warning"><strong>11:36</strong>Only if abandoning full plan</div></div>
+<div class="mini-note"><strong>Verify before travel:</strong> FGC R5/R50 timetables and mountain railway/funicular operations can change. Check the boards at Plaça Espanya and the Montserrat site on the day.</div>
+</div></div>
+<div class="card"><div class="card-body">
+<h3>Day 6 · Friday 17 July · Barcelona</h3>
+<p class="daysub">Free city day · morning walking route · indoor afternoon</p>
+<p><span class="pill">No fixed tickets</span><span class="pill">Pride crowd control</span><span class="pill">Indoor backup</span></p>
+<ul class="tl">
+<li><span class="t">~08:40</span><span class="d">🚇 To the route start (the cathedral): <strong>L5 Hospital Clínic → Verdaguer, change to L4 → Jaume I</strong> (~20 min), exit onto Via Laietana. Simpler alternative: <strong>L1 Rocafort → Catalunya</strong> and walk down Portal de l'Àngel (7 min). Taxi ~€10.</span></li>
+<li><span class="t">09:00–11:30</span><span class="d">Morning walking route: best pick is <strong>Gothic Quarter &amp; El Born</strong> because it is flat and partly shaded. Alternative: Passeig de Gràcia exteriors if you want easier wide pavements.</span></li>
+<li><span class="t">11:30</span><span class="d">End with vermut/café, €0.99 cheesecake, or Sucre Cremat crema catalana near El Born/Gothic.</span></li>
+<li><span class="t">12:00–14:00</span><span class="d"><strong>Picasso Museum</strong> — air-conditioned, and it sits exactly where Route 1 ends in El Born, so zero extra transit in the heat. Book online the night before.</span></li>
+<li><span class="t">14:00–16:30</span><span class="d">Late lunch, then back: 🚇 <strong>L4 Jaume I → Verdaguer, change to L5 → Hospital Clínic</strong> (~20 min), or taxi ~€10. On the way: <strong>supermarket stop near the hotel for tomorrow's Núria packed lunch</strong> (bread, cheese, fruit, water — valley food is pricey).</span></li>
+<li><span class="t">Late pm</span><span class="d">Indoor pick: Palau de la Música, Hospital de Sant Pau, Picasso Museum, or El Corte Inglés.</span></li>
+<li><span class="t">Evening</span><span class="d">Dinner <strong>west of Carrer de Balmes / near the hotel</strong>. The Pride Village opens at Plaça Universitat today — daytime city is normal, but from late afternoon avoid Universitat, lower Passeig de Gràcia and Gran Via. If a look at the Village atmosphere appeals, early Friday evening is the low-stakes time.</span></li>
+</ul>
+</div></div>
+<div class="card"><div class="card-body">
+<h3>Day 7 · Saturday 18 July · Pyrenees — Vic · Queralbs · Vall de Núria</h3>
+<p class="daysub">Full-day guided tour · away from Barcelona Pride crowds</p>
+<p><span class="pill">Klook booked</span><span class="pill">Meet 08:15</span><span class="pill">Return ~19:00</span><span class="pill">Núria 15–18°C</span></p>
+<ul class="tl">
+<li><span class="t">07:30</span><span class="d">🚕 <strong>Taxi to Palau de la Música</strong> (~€8–10, ~10 min at this hour — FreeNow/Cabify the night before). Metro backup: <strong>L1 Rocafort → Urquinaona</strong>, 4 stops, then 4 min walk. Bring jacket, trainers, packed lunch/snacks, water and cash.</span></li>
+<li><span class="t">08:15</span><span class="d"><strong>Assemble near Palau de la Música</strong> — exact corner on Klook voucher. Depart around 08:30.</span></li>
+<li><span class="t">Late am</span><span class="d">Vic — medieval market town. Saturday market day in Plaça Major.</span></li>
+<li><span class="t">Early pm</span><span class="d">Queralbs stone village, then <strong>cremallera rack railway to Vall de Núria</strong> (20–25 min, climbs to 1,967 m — no road exists). <strong>Best seat: front carriage facing forward</strong> — driver's-eye view of the gorge and the sanctuary reveal straight ahead after the final tunnel. Otherwise take a window on the drop side (obvious when boarding; the gorge swaps sides on the bends). Board promptly — summer Saturdays fill fast. Going down, sit facing downhill.</span></li>
+<li><span class="t">Afternoon</span><span class="d"><strong>Vall de Núria free time</strong> — suggested plan below.</span></li>
+<li><span class="t">~19:00</span><span class="d">Back in Barcelona — <strong>drop-off is near Palau de la Música while the Pride parade (18:00) is mid-flow one axis away</strong>. Skip taxis across Gran Via: walk 5 min to <strong>Urquinaona, metro L1 westbound to Rocafort</strong>, then 10 min to the hotel. L1 runs under Gran Via, unaffected. Easy dinner near the hotel.</span></li>
+</ul>
+<h4>Vall de Núria free time · suggested 2.5–3 h plan</h4>
+<table>
+<tr><th>Order</th><th>What</th><th>Time</th></tr>
+<tr><td>1</td><td><strong>Coma del Clot cable car</strong> up to the Pic de l'Àliga viewpoint (2,170 m) — the best panorama of the whole bowl for zero effort; watch for chamois. Included with the standard cremallera ticket — confirm with the guide that the tour ticket qualifies. Ride back down or walk down (~30–40 min, easy).</td><td>~50 min</td></tr>
+<tr><td>2</td><td><strong>Lake loop</strong> (flat, all the way round) including the small <strong>mirador hill on the right of the lake</strong> — 10 min up, best land photo of sanctuary + lake + peaks.</td><td>~40 min</td></tr>
+<tr><td>3</td><td><strong>Rowing boat on the lake</strong> — 30-min slots, life vests provided, small fee, often cash, pay on site. The classic Núria shot is from the water with the sanctuary behind.</td><td>~30 min</td></tr>
+<tr><td>4</td><td><strong>Sanctuary + basilica</strong> — free with the cremallera ticket. Do the tradition: head in Sant Gil's pot, ring the bell.</td><td>~20 min</td></tr>
+<tr><td>5</td><td>Buffer: café/ice cream, station exhibitions (free — good wet-weather fallback), toilets, be at the platform early for the down train.</td><td>rest</td></tr>
+</table>
+<div class="mini-note">Weather flips fast at 2,000 m even in July (15–18°C, colder in wind) — jacket stays in the daybag. If time runs short, cut item 3 first, then 2; the cable car is the keeper. Photos: <a href="https://www.google.com/maps/search/?api=1&amp;query=Vall+de+Nuria">📷 Vall de Núria</a></div>
+
+</div></div>
+<div class="card"><div class="card-body">
+<h3>Day 8 · Sunday 19 July · Girona · Besalú · Castellfollit de la Roca</h3>
+<p class="daysub">Full-day guided tour · final full day</p>
+<p><span class="pill">GYG booked</span><span class="pill">Arrive by 07:50</span><span class="pill">Pg. de Gràcia 27</span><span class="pill">Pack tonight</span></p>
+<ul class="tl">
+<li><span class="t">~07:25</span><span class="d">🚕 <strong>From the hotel: taxi ~€8–10, ~10 min</strong> — book for 07:25–07:30. Metro backup: <strong>L1 Rocafort → Catalunya</strong> (3 stops), exit toward Pg. de Gràcia and walk down 5–6 min toward Gran Via; no. 27 is between Gran Via and Diputació. Leave the hotel by ~07:15 if going by metro.</span></li>
+<li><span class="t">07:50</span><span class="d"><strong>Arrive at the pickup point:</strong> Pg. de Gràcia, 27, L'Eixample, 08007 Barcelona — <strong>in front of the BBVA bank</strong>. The operator requires arrival 10 minutes before the chosen time.</span></li>
+<li><span class="t">Stop 1</span><span class="d">Girona — usually the longest stop. Focus on Onyar houses, Cathedral steps, El Call and walls if time allows.</span></li>
+<li><span class="t">Stop 2</span><span class="d">Besalú — fortified medieval bridge town.</span></li>
+<li><span class="t">Stop 3</span><span class="d">Castellfollit de la Roca — basalt cliff village viewpoint.</span></li>
+<li><span class="t">Evening</span><span class="d">Return drop-off at <strong>Pg. de Gràcia, 27</strong>. Home: walk up to Catalunya and take <strong>L1 → Rocafort</strong>, or taxi ~€8–10. Early dinner near hotel, full packing block, boarding passes checked, taxi for 04:30 confirmed.</span></li>
+</ul>
+<div class="getting-there">
+<div class="gt-head"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg><strong>Sunday tour meeting point</strong></div>
+<ul class="gt-list">
+<li><span class="gt-tag best">Arrive</span><span class="gt-text"><strong>07:50</strong> — 10 minutes before the chosen tour time.</span></li>
+<li><span class="gt-tag">Address</span><span class="gt-text"><strong>Pg. de Gràcia, 27, L'Eixample, 08007 Barcelona</strong></span></li>
+<li><span class="gt-tag">Landmark</span><span class="gt-text">Meet <strong>in front of the BBVA bank</strong>.</span></li>
+<li><span class="gt-tag best">From hotel</span><span class="gt-text"><strong>Taxi ~€8–10 (~10 min), book for 07:25</strong>. Metro: L1 Rocafort → Catalunya + 5–6 min walk down Pg. de Gràcia (leave by ~07:15).</span></li>
+<li><span class="gt-tag">Return</span><span class="gt-text">One of the listed drop-off points is the same address: <strong>Pg. de Gràcia, 27</strong>.</span></li>
+</ul>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Pg.+de+Gr%C3%A0cia+27+Barcelona"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Open pickup point in Google Maps</a>
+</div>
+
+</div></div>
+<div class="card"><div class="card-body">
+<h3>Day 9 · Monday 20 July · Barcelona → Belfast</h3>
+<p class="daysub">Early airport transfer · return flight</p>
+<p><span class="pill">Taxi 04:30</span><span class="pill">BCN T2</span><span class="pill">Flight 07:10</span></p>
+<ul class="tl">
+<li><span class="t">04:00</span><span class="d">Room ready. Passports, boarding passes and snacks accessible on top.</span></li>
+<li><span class="t">04:30</span><span class="d">Pre-booked taxi via FreeNow/Cabify to BCN Terminal 2. Estimated €35–50 night tariff.</span></li>
+<li><span class="t">05:15</span><span class="d">At T2 for bag drop + security.</span></li>
+<li><span class="t">07:10</span><span class="d">✈️ <strong>EasyJet BCN → BFS departs.</strong></span></li>
+<li><span class="t">09:05</span><span class="d">Land Belfast International. Airport Express 300 back to Grand Central using the return half of the Monthly Return.</span></li>
+</ul>
+</div></div>
+</section><section class="section" id="key-details">
+<div class="section-head">
+<div class="badge sun"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path><path d="M21 12a9 9 0 1 1-6.2-8.56"></path></svg></div>
+<div><span class="sub">Fixed info</span><h2>Key Details</h2></div>
+</div>
+<p class="route-intro">Fixed trip details copied into the guide for offline checking.</p>
+<div class="card"><div class="card-body">
+<h3>Flights — EasyJet</h3>
+<ul class="info-list">
+<li><span class="key">Outbound</span><span class="val">Sun 12 Jul 2026 · Belfast Intl 06:10 → Barcelona T2 / T2C 09:50</span></li>
+<li><span class="key">Return</span><span class="val">Mon 20 Jul 2026 · Barcelona T2 07:10 → Belfast Intl 09:05</span></li>
+<li><span class="key">Airport plan</span><span class="val">Outbound: at BFS by around 04:00. Return: taxi 04:30, at BCN T2 by 05:15.</span></li>
+</ul>
+</div></div>
+<div class="card"><div class="card-body">
+<h3>Accommodation</h3>
+<ul class="info-list">
+<li><span class="key">Tossa de Mar</span><span class="val"><strong>Hotel Simeon</strong> · 12–14 Jul · Carrer del Doctor Trueta 1 · 5 min walk from bus station and Platja Gran · café breakfast plan.</span></li>
+<li><span class="key">Barcelona</span><span class="val"><strong>Hotel Sunotel Aston</strong> · 14–20 Jul · Carrer de París 101–107 · check-in from 14:00 · AC rooms for midday heat breaks (pool is an evening option only).</span></li>
+</ul>
+</div></div>
+<div class="card"><div class="card-body">
+<h3>Booked tickets</h3>
+<ul>
+<li><strong>Park Güell:</strong> Tue 14 Jul · 16:30 timed entry · latest safe entry 17:00.</li>
+<li><strong>Sagrada Família:</strong> Wed 15 Jul · 17:00 slot · passports required.</li>
+<li><strong>Tot Montserrat:</strong> Thu 16 Jul · exchange voucher at Plaça de Catalunya tourist office.</li>
+<li><strong>Vall de Núria tour:</strong> Sat 18 Jul · Klook · meet 08:15 near Palau de la Música.</li>
+<li><strong>Girona/Besalú/Castellfollit tour:</strong> Sun 19 Jul · GetYourGuide · arrive by <strong>07:50</strong> at <strong>Pg. de Gràcia, 27</strong>, in front of BBVA · return drop-off also listed at Pg. de Gràcia, 27.</li>
+</ul>
+</div></div>
+<p class="itinerary-source-note">Updated from the uploaded trip book and current working guide. Add actual booking references where marked in your vouchers.</p>
+</section>
+<!-- FLIGHTS -->
+<section class="section" id="flights">
+<div class="section-head">
+<div class="badge">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3.5S18 3 16.5 4.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 4.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+</div>
+<div>
+<span class="sub">Getting there &amp; back</span>
+<h2>Flights</h2>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<ul class="info-list">
+<li>
+<span class="key">Outbound</span>
+<div class="detail-rows">
+<div class="row"><span class="r-label">Date</span><span class="r-value">Sun 12 Jul 2026</span></div>
+<div class="row"><span class="r-label">Route</span><span class="r-value">Belfast International (BFS) → Barcelona El Prat (BCN)</span></div>
+<div class="row"><span class="r-label">Airline</span><span class="r-value">EasyJet</span></div>
+<div class="row"><span class="r-label">Departs</span><span class="r-value">06:10</span></div>
+<div class="row"><span class="r-label">Arrives</span><span class="r-value">09:50 · Terminal 2 (T2C)</span></div>
+<div class="row"><span class="r-label">Airport</span><span class="r-value">Arrive BFS around 04:00 for check-in and security</span></div>
+</div>
+</li>
+<li>
+<span class="key">Return</span>
+<div class="detail-rows">
+<div class="row"><span class="r-label">Date</span><span class="r-value">Mon 20 Jul 2026</span></div>
+<div class="row"><span class="r-label">Route</span><span class="r-value">Barcelona El Prat (BCN) → Belfast International (BFS)</span></div>
+<div class="row"><span class="r-label">Airline</span><span class="r-value">EasyJet</span></div>
+<div class="row"><span class="r-label">Departs</span><span class="r-value">07:10 · Terminal 2</span></div>
+<div class="row"><span class="r-label">Arrives</span><span class="r-value">09:05</span></div>
+<div class="row"><span class="r-label">Airport</span><span class="r-value">Pre-book taxi 04:30 · target BCN Terminal 2 by 05:15</span></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- GOOD TO KNOW -->
+<section class="section" id="info">
+<div class="section-head">
+<div class="badge sun">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v.01M11 12h1v4h1"></path></svg>
+</div>
+<div>
+<span class="sub">Practical bits</span>
+<h2>Good to Know</h2>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<ul class="info-list">
+<li><span class="key">Heat rhythm</span><span class="val">Peak heat is roughly 11:00–16:00. Plan outdoor sights early morning or after 16:30, with hotel or indoor breaks in the middle of the day.</span></li>
+<li><span class="key">Taxi use</span><span class="val">Use official black-and-yellow taxis in Barcelona, FREENOW/Cabify, or hotel-called taxis. Avoid random drivers offering rides.</span></li>
+<li><span class="key">Beach belongings</span><span class="val">Passports and extra cards stay at the hotel. Bring only one phone, small cash and one card; use a waterproof pouch or take turns watching things.</span></li>
+<li><span class="key">Weekday lunch</span><span class="val">Look for <em>menú del día</em> around Eixample for better-value set lunches than tourist areas.</span></li>
+<li><span class="key">Crowd control</span><span class="val">Keep Friday night and Saturday away from central Pride activity where possible. Use Eixample, hotel breaks and pre-booked timed sights to reduce stress.</span></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- STAYS -->
+<section class="section" id="stays">
+<div class="section-head">
+<div class="badge sea">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"></path></svg>
+</div>
+<div>
+<span class="sub">Where you're sleeping</span>
+<h2>Accommodation</h2>
+</div>
+</div>
+<div class="card">
+<div class="card-img">Tossa de Mar stay</div>
+<div class="card-body">
+<h3>Hotel Simeon</h3>
+<div class="card-meta">12–14 July · Tossa de Mar · near beach and bus station</div>
+<p>Carrer del Doctor Trueta, 1 · 17320 Tossa de Mar · +34 972 340 079.</p>
+<ul class="info-list">
+<li><span class="key">Location</span><span class="val">About 5 minutes on foot from the Tossa bus station and about 5 minutes from Platja Gran.</span></li>
+<li><span class="key">Use</span><span class="val">Best base for the beach, Vila Vella, evening headland walk and short coastal route.</span></li>
+<li><span class="key">Booking</span><span class="val">Direct hotel confirmation kept as primary proof. Add booking reference and PDF/screenshot link here.</span></li>
+</ul>
+</div>
+</div>
+<div class="card">
+<div class="card-img alt">Barcelona stay</div>
+<div class="card-body">
+<h3>Hotel Sunotel Aston</h3>
+<div class="card-meta">14–20 July · Eixample · AC heat-break base</div>
+<p>Carrer de París, 101–107 · 08029 Barcelona · +34 933 637 070.</p>
+<ul class="info-list">
+<li><span class="key">Check-in / out</span><span class="val">Check-in from 14:00 · check-out by 12:00 · luggage storage available at reception.</span></li>
+<li><span class="key">Use</span><span class="val">Main Barcelona base for air-conditioned midday rests, Eixample lunches and taxi access to timed sights.</span></li>
+<li><span class="key">Booking</span><span class="val">Add hotel confirmation, reference number and PDF/screenshot link here.</span></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TOURS -->
+<section class="section" id="tours">
+<div class="section-head">
+<div class="badge sun">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9.5 8.5 3 9l5 4.5L6.5 20 12 16.5 17.5 20 16 13.5 21 9l-6.5-.5z"></path></svg>
+</div>
+<div>
+<span class="sub">Costa Brava &amp; the mountains</span>
+<h2>Tours</h2>
+</div>
+</div>
+<div class="card">
+<img alt="Park Güell dragon staircase" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMzEq98X4UuFm_pfDiM-UprnsDt3vEHkO9Bc9mHWc3nvo6_CwcXnrWIGYye7LWklixGNISoq2Z9GdcgcyXz6z9FOlv9QjgbZdQA7Dr6YsVPpxYdmAFd-QurAubB0kS538GCil-qx2ACUGaN=s4800-w800-h600" style="border-radius:0;height:200px;"/>
+<div class="card-body">
+<h3>Park Güell</h3>
+<div class="card-meta">Gaudí's mosaic park · timed entry, book ahead</div>
+<p>Gaudí's whimsical hilltop park — the mosaic dragon, the wavy serpentine bench, the terrace with sweeping views over the city to the sea. The famous Monumental Zone is ticketed and timed; the outer forest zone is free. Entry is advance-only (no walk-up tickets). This trip's slot is booked: <strong>Tue 14 Jul, 16:30</strong> (entry buffer to 17:00).</p>
+<div class="stop-facts">
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Gràcia hills · Metro Lesseps (L3)</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Daily 9:30–19:30 · last entry ~18:30</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.4 ★ · UNESCO site</span>
+<span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>Basic €18 · +Gaudí House ~€28</span>
+</div>
+<div class="notice">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"></path><path d="M12 9v4M12 17h.01"></path></svg>
+<div class="n-body"><strong>Renovation right now:</strong> parts of the Plaça de la Natura and the Hypostyle Hall are partially closed for works, and the Vallcarca escalator shortcut is out of service — so use the <strong>Lesseps</strong> metro entrance or the bus, not Vallcarca. Still well worth visiting; just a few areas affected.</div>
+</div>
+<div class="getting-there">
+<div class="gt-head"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M5 17h14M6 17V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8M8 21v-2M16 21v-2M9 7V5h6v2M8 13h8"></path></svg><strong>Getting there</strong></div>
+<ul class="gt-list">
+<li><span class="gt-tag best">Easiest</span><span class="gt-text"><strong>Bus 24</strong> from Plaça de Catalunya — runs up Passeig de Gràcia (near your hotel) and drops you right by the main entrance on Carrer d'Olot. ~30 min, almost no uphill walking.</span></li>
+<li><span class="gt-tag">Metro</span><span class="gt-text"><strong>Lesseps (L3, green)</strong> then ~20 min walk — flat at first, steep for the last 10 min. Fine, but tiring in the heat.</span></li>
+<li><span class="gt-tag">Taxi</span><span class="gt-text">~€13–16 from the centre. Drops at the Carretera del Carmel side entrance (not the gingerbread-gatehouse one), and you return from the same spot.</span></li>
+<li><span class="gt-tag avoid">Skip</span><span class="gt-text"><strong>Vallcarca</strong> — normally the escalator shortcut, but it's out of service right now, so it's a steep climb. Use Bus 24 or Lesseps instead.</span></li>
+</ul>
+</div>
+<div class="stop-tip">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="20" rx="2" width="12" x="6" y="2"></rect><path d="M11 5h2M12 18v.01"></path></svg>
+<span><strong>Skip the paid audio guide:</strong> the <strong>official Park Güell app is free</strong> (iOS/Android) and covers the whole Monumental Zone — download it before you go, save it offline (weak signal on the hill), and bring earphones. No need to pay extra for an "audio guide" ticket.</span>
+</div>
+<div class="stop-tip">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19"></path></svg>
+<span><strong>Best slot:</strong> book a <strong>late-afternoon entry (~4:30–6pm)</strong> — cooler than the midday heat, the tour buses have thinned out, and you get golden-hour light over the city. The mosaic dragon is always mobbed; the Pòrtic de la Bugadera (wave-like stone colonnade) is a quieter photo spot.</span>
+</div>
+<div class="stop-tip">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+<span><strong>One-way &amp; no re-entry:</strong> the Monumental Zone is one-way — once you exit through the turnstiles you can't go back in. Get your dragon/lizard photo before heading toward the exit.</span>
+</div>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Park+Guell+Barcelona" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+            Open in Google Maps
+          </a>
+</div>
+</div>
+</section>
+<!-- WALKING -->
+<section class="section" id="walking">
+<div class="section-head">
+<div class="badge">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5M9 13l-2 2-1 4"></path></svg>
+</div>
+<div>
+<span class="sub">Self-guided routes</span>
+<h2>Barcelona on Foot</h2>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<h3 style="font-size:23px;">Gothic Quarter &amp; El Born</h3>
+<div class="card-meta">Route 1 of the Barcelona on Foot series</div>
+<div class="route-meta">
+<span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><strong>2.5 km</strong></span>
+<span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>~2 hrs with stops</span>
+<span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 18 L9 6 L13 14 L16 9 L20 18"></path></svg>Flat, cobbled</span>
+<span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"></path></svg>Best 9:30–11:30</span>
+</div>
+<p class="route-intro">A flat, shaded loop through the oldest part of the city, starting at the cathedral and ending in the livelier El Born with its tapas bars. Mornings are best: the lanes are quiet, the light slants in, and you beat both the heat and the tour groups. Metro: Jaume I (L4) drops you in the middle of it all.</p>
+<iframe class="route-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Barcelona+Cathedral+to+Passeig+del+Born&amp;output=embed" title="Gothic Quarter and El Born walking route map"></iframe>
+<p class="map-caption">
+<a href="https://www.google.com/maps/dir/Barcelona+Cathedral/Pont+del+Bisbe/Pla%C3%A7a+de+Sant+Jaume/Basilica+Santa+Maria+del+Mar/Passeig+del+Born/data=!4m2!4m1!3e2" rel="noopener" target="_blank">Open the full walking route in Google Maps →</a>
+</p>
+<ol class="stops">
+<li class="stop">
+<img alt="Barcelona Cathedral facade" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZOQb1rGDovSc37qp8N2mYqlL6db56_50dAYK0LnwG3LEr0B6ZjR3Il-jTqZTqt1Jf7V-4HF4wLmzzImif4SOA5B4xrK5aOUoId5g08svBIIcdLJeu3EOuN6HyOjwTVU_-m2v5hW-rVEmOOB=s4800-w800-h600"/>
+<h4>Barcelona Cathedral</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Pla de la Seu · Plaça Nova</span>
+<p>The Gothic cathedral, not to be confused with Sagrada Família. Stand back in the open square of Plaça Nova to take in the full spired facade. Free to enter outside ticketed visiting hours; modest dress needed inside.</p>
+<div class="stop-facts">
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Mon–Fri 9:30–17:45</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.5 ★</span>
+<span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Ticket to go inside (~€11)</span>
+</div>
+<div class="stop-tip">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+<span><strong>Photo:</strong> shoot from the far corner of Plaça Nova — it's the only spot wide enough to fit the whole facade in frame.</span>
+</div>
+<div class="stop-walk">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg>
+<span><strong>Next:</strong> walk 90 seconds south down Carrer del Bisbe — the bridge is right above you.</span>
+</div>
+</li>
+<li class="stop">
+<img alt="Pont del Bisbe neo-Gothic bridge" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZNBRp1tHyCm4QcNFJwD17ho8nKpDfqTkFuIcVagLgqElUnUBMiJq2inI5VBxRzQLdXjNRfhe_DOkxpc6SzKtS9yIFVEks8u_-O63P_aVAL9NcCt35UvvH7hwAOBms6ufH5jeqUy1p_b3foHQGLKpAbQng=s4800-w800-h600"/>
+<h4>Pont del Bisbe</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Carrer del Bisbe</span>
+<p>The most photographed spot in the Gothic Quarter — a delicate neo-Gothic bridge arching over the lane between two government buildings. It looks medieval but was actually built in 1928 by a student of Gaudí. Look for the small carved skull with a dagger underneath.</p>
+<div class="stop-facts">
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.7 ★ · 1,900 reviews</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Always open · outdoor</span>
+<span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free · no ticket</span>
+</div>
+<div class="stop-tip">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+<span><strong>Photo:</strong> stand directly under the arch and shoot straight up. Get here before 10am — by midday there's a queue for this exact shot.</span>
+</div>
+<div class="stop-walk">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg>
+<span><strong>Next:</strong> continue to the end of Carrer del Bisbe — it opens into the square.</span>
+</div>
+</li>
+<li class="stop">
+<img alt="Plaça de Sant Jaume" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPWqpxdkmoyutw_NUdxlNXAy8VykMJAmp2fUJamP0SPuIYroHE2KHt4uUZ3o54p6NPXyA0lCGjGTm12tnb7TT7zYIbGfpTH1k5mHOKG7MPw1moRRK7NThhBSAojaje0bVbpQbSgeakpYSGC=s4800-w800-h596"/>
+<h4>Plaça de Sant Jaume</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Plaça de Sant Jaume</span>
+<p>The civic heart of Barcelona for 2,000 years — this was the Roman forum. Today the City Hall and the Palau de la Generalitat (the Catalan government) face each other across the square. If there's a festival on, this is where castellers build their human towers.</p>
+<div class="stop-facts">
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.6 ★</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Open square</span>
+<span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free · no ticket</span>
+</div>
+<div class="stop-walk">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg>
+<span><strong>Next:</strong> head east ~8 min along Carrer de la Llibreteria then Carrer de l'Argenteria, which leads straight to the basilica.</span>
+</div>
+</li>
+<li class="stop">
+<img alt="Basilica de Santa Maria del Mar interior" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMYpRG4HF36unER80t4wsJGILaRjeVL0S9l1ci3MCtLNRiI7zmN1WuiGZsKAutC4ZBFWyt9p7pjJkv3K0vVP7W0rVH_ca_L1EjwsjC5aDIFMA2XN9HCpO5eTJQEs-jGejyZCNT0QRPhVp4wbA=s4800-w800-h600"/>
+<h4>Basílica de Santa Maria del Mar</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Plaça de Santa Maria, El Born</span>
+<p>The "cathedral of the sea" — Catalan Gothic at its purest, built in just 55 years by the port workers and merchants of the Ribera district themselves. Inside, slender columns soar into a wide, calm space with very little clutter. Free entry in the mornings; a small fee to climb to the roof terrace, where on a clear day you can see all the way to Sagrada Família.</p>
+<div class="stop-facts">
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Daily 10:00–18:00</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.7 ★ · 40k reviews</span>
+<span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free mornings</span>
+<span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Ticket for roof terrace (~€10)</span>
+</div>
+<div class="stop-tip">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+<span><strong>Photo:</strong> stand at the back centre aisle for the symmetrical column shot. The rose window glows best with late-morning light behind it.</span>
+</div>
+<div class="stop-walk">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg>
+<span><strong>Next:</strong> the promenade begins right behind the basilica — 1 minute.</span>
+</div>
+</li>
+<li class="stop">
+<img alt="Passeig del Born promenade" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZNCZtWne8KS0QMgTsL3zbYDwbBoKD3XacFC7_OAen6BbLBZYpbdpU3zXIDx5lRhZwbCP9fZ97gDbxsToKN-1Z32Ok7G1sVl32RU67rls0AbWOWABakYfvY7Bmm6lM7Yph5NcKLYHo0eCSweMgI=s4800-w800-h600"/>
+<h4>Passeig del Born</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Passeig del Born</span>
+<p>End the walk on this wide, tree-lined promenade — a medieval jousting ground turned café strip. This is the spot to stop for a mid-morning <em>vermut</em> (vermouth on the rocks, the local ritual) or one of the city's best croissants, and watch El Born wake up around you.</p>
+<div class="stop-facts">
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.5 ★</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 3v7a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V3M6 3v18"></path></svg>Cafés &amp; vermut bars</span>
+<span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free · open promenade</span>
+</div>
+<div class="stop-tip">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+<span><strong>Photo:</strong> shoot down the length of the promenade with the basilica framed at the far end.</span>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<h3 style="font-size:23px;">The Ramblas &amp; La Boqueria</h3>
+<div class="card-meta">Route 2 of the Barcelona on Foot series</div>
+<div class="notice">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"></path><path d="M12 9v4M12 17h.01"></path></svg>
+<div class="n-body"><strong>Heads up — major roadworks until early 2027.</strong> La Rambla is mid-way through a big renovation, so expect construction hoardings, machinery and some removed terraces along the route. It's still fully walkable and every sight below (market, opera, squares, column) stays open — just don't expect the pretty tree-lined stroll from the photos yet.</div>
+</div>
+<div class="route-meta"><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><strong>1.2 km</strong></span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>~2 hrs with stops</span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 18 L9 6 L13 14 L16 9 L20 18"></path></svg>Flat, downhill</span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"></path></svg>Best before 09:30</span></div>
+<p class="route-intro">The city's most famous promenade, walked downhill from the Canaletes fountain to the sea. It's touristy and busy by design — the trick is to go early, dip into the market and the hidden squares just off the main drag, and end at the waterfront. Metro: Catalunya (top) or Drassanes (bottom).</p>
+<iframe class="route-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=La+Rambla+Barcelona&amp;output=embed" title="The Ramblas &amp; La Boqueria walking route map"></iframe>
+<p class="map-caption"><a href="https://www.google.com/maps/search/La+Rambla+Barcelona" rel="noopener" target="_blank">Open this route in Google Maps →</a></p>
+<ol class="stops">
+<li class="stop">
+<img alt="Font de Canaletes" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMeHtjbSi6x-FhvUK77GZYbc-wMsCvkUIFcXeBFurM3dtXsK0kIl_FpgEW5GMSO-57LnMb-unhdm_ya_4V0Q9DksbgvsP_yslxyZGzBR1vh4GxO1IkQJn9_2RBty_WOqx7SzUS6Ps0TmDSIoQ=s4800-w800-h600"/>
+<h4>Font de Canaletes</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Top of La Rambla</span>
+<p>The fountain that marks the head of La Rambla. Local legend says anyone who drinks from it will return to Barcelona. It's also where Barça fans gather to celebrate trophies.</p>
+<p>Start here and walk downhill toward the sea — the whole Rambla slopes gently down to the port.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.4 ★</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free · outdoor</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>shoot down the tree-lined Rambla from here for the long perspective with the crowds and kiosks.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><span><strong>Next:</strong> 2 min down La Rambla, then duck right into Carrer del Bonsuccés — the little square is 20 m in.</span></div>
+</li>
+<li>
+<h4>Plaça del Bonsuccés — La Solidaridad marker 🇵🇭</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Plaça del Bonsuccés, 2 min off La Rambla (Raval side)</span>
+<p>An official city plaque in Catalan and Tagalog marks the former headquarters of <em>La Solidaridad</em> (1889–1895) — the Propaganda Movement newspaper founded in Barcelona on 15 February 1889, the paper of Rizal, del Pilar and López Jaena. Full story in the <a href="history.html">history companion</a>.</p>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>close enough that the Tagalog lines are legible.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><span><strong>Next:</strong> back to La Rambla and continue down — no. 109 is on your right.</span></div>
+</li>
+<li>
+<h4>Hotel 1898 🇵🇭</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>La Rambla 109 — you pass its door anyway</span>
+<p>Former headquarters of the Compañía General de Tabacos de Filipinas, which ran the Philippine tobacco trade from 1881. The hotel named itself after the year Spain lost the islands. A glance and a photo — no need to go in.</p>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><span><strong>Next:</strong> ~150 m further down; the market entrance is on your right.</span></div>
+</li>
+
+<li class="stop">
+<img alt="Mercat de la Boqueria" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPsaGYmReTkovEqof5BT4Dwdrc4MfcZJol2Xucc-iw_d9ZIF3YTkywGK7_UvA3pCTvLtwBiCZlaEi9cDlqEaPjAyiu5LydkeENyNoKqNhdwloODzsgGmkA8s-fu5nHjCS79XhvI_ytMMH1U=s4800-w800-h600"/>
+<h4>Mercat de la Boqueria</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>La Rambla 91</span>
+<p>Barcelona's wild, technicolour food market — stalls of jamón, fruit, sweets, and seafood under a stained-glass entrance. It can get mobbed; come early so you can actually move and the vendors have time for you.</p>
+<p>Closed Sundays. On weekdays it's best before 09:30, before the tour groups arrive.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Mon–Sat 8:00–20:30</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.5 ★ · 212k reviews</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free to enter</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"></path></svg>Closed Sundays</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>the famous fruit-cup and candy stalls just inside the entrance are the most colourful shot. Go early for clean light and no crowds.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><span><strong>Next:</strong> back on La Rambla, continue 3 min downhill to the opera house on the right.</span></div>
+</li>
+<li class="stop">
+<img alt="Gran Teatre del Liceu" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZOu84h4f2jrLf4LuVJWMvZzhF4oGP8M4kA2SwC9Yn8-SzFWLm6h_YntPgA_xgN3amUlhqhaTiarMT1H9uB4f85weNRMcNMePtmOJERmY2YpfOKa2O9JPwXeSf3q3BVj_j8SMbE130GI2-rmBq0=s4800-w800-h600"/>
+<h4>Gran Teatre del Liceu</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>La Rambla 51–59</span>
+<p>Barcelona's grand 19th-century opera house, twice rebuilt after fires. The facade is easy to miss in the Rambla bustle — look for the columned entrance. You can peek into the lobby or book a daytime tour.</p>
+<p>Just opposite is the Miró mosaic set into the pavement (Pla de l'Os), which most people walk straight over without noticing.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Tours Mon–Fri 10:00–19:00</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.7 ★</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Ticket for interior tour (~€9)</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>crouch low over the Miró pavement mosaic across the street to get it in the foreground with the opera house behind.</span></div>
+<p>🇵🇭 At this corner, 30 seconds into Carrer de Sant Pau on the right: <strong>Hotel España</strong>, formerly the Fonda de España, where <strong>José Rizal boarded on arriving in Barcelona on 16 June 1882</strong> — his marker is on the building, and the celebrated interiors are by Domènech i Montaner.</p>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><span><strong>Next:</strong> a few steps down, turn left through the arcade into Plaça Reial.</span></div>
+</li>
+<li class="stop">
+<img alt="Plaça Reial" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZNq6vwCdyA_H0FyT3l6kQ_VsIGLsFwx_uc99jFof--y6-ppLdcdS4RwAhW4dhjsu6phUi9rrCUARAWGEaFzc2rh8JUwMlJ9C0nstB1g2000fJWNvki96tIgx7u9CqvyMHWe-1erbl86_Dzw=s4800-w800-h600"/>
+<h4>Plaça Reial</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Off La Rambla</span>
+<p>A grand arcaded square with palm trees, a central fountain, and lamp-posts designed by a young Gaudí. By day it's calm and good for a coffee; by night it buzzes with bars and music.</p>
+<p>A lovely shaded spot to sit for ten minutes before the final stretch to the water.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>Hidden-gem square</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free · open square</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>frame the symmetry of the arcades and palms around the central fountain. Morning light fills the east side.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><span><strong>Next:</strong> back to La Rambla and walk the final 5 min down to the Columbus column at the port.</span></div>
+</li>
+<li class="stop">
+<img alt="Mirador de Colom" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZM-t92VF97PS7-P1L33LmdfbrJKVe4FcDYAPtCKW5vwoXAHB-R-zGHEF8ulbWwDzbk4AEyanOeCbO9rFAt21VRJialbRkaALVsXJ5k4ky_VZ-R3wYxkruXYJUz4VZcjdvjSXVx0vZpR4wQu=s4800-w800-h600"/>
+<h4>Mirador de Colom</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Plaça Portal de la Pau</span>
+<p>The Rambla ends here at the waterfront, where a 60 m column lifts Columbus pointing out to sea. There's a lift inside up to a small viewing platform for a panorama over the port and the old city.</p>
+<p>From here you're right at Port Vell — easy to carry on to the harbour or Barceloneta.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Daily 8:30–14:30</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.5 ★</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Ticket for the lift up (~€6)</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>from the base looking straight up the column, or from the harbour side with the marina and column together.</span></div>
+</li>
+</ol>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<h3 style="font-size:23px;">Passeig de Gràcia &amp; Gaudí</h3>
+<div class="card-meta">Route 3 of the Barcelona on Foot series</div>
+<div class="route-meta"><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><strong>1 km</strong></span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>~1.5 hrs</span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 18 L9 6 L13 14 L16 9 L20 18"></path></svg>Flat, wide pavements</span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"></path></svg>Morning light best</span></div>
+<p class="route-intro">A short, flat stroll up Barcelona's grandest boulevard, past the "Block of Discord" where Modernista architects tried to outdo each other, up to Gaudí's La Pedrera. This route is about exteriors — you can admire every facade for free from the street, and pick just one or two to go inside if you want. Metro: Passeig de Gràcia.</p>
+<iframe class="route-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Passeig+de+Gracia+Barcelona&amp;output=embed" title="Passeig de Gràcia &amp; Gaudí walking route map"></iframe>
+<p class="map-caption"><a href="https://www.google.com/maps/search/Passeig+de+Gracia+Barcelona" rel="noopener" target="_blank">Open this route in Google Maps →</a></p>
+<ol class="stops">
+<li class="stop">
+<img alt="Casa Lleó Morera" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPYlHbs7ajyTHpgYDpXonoWEPnGDl8fDJCLfb3HNFoY47duOt0U29H32NmaCBhDXrifvzAIJE3ktq8F9Ej47_jUtoIoWz0OnGx62VK4WTTRupgdKcvM23I37hlrOXjROodv9qzLjp2YOt-QOqXAORNs=s4800-w800-h600"/>
+<h4>Casa Lleó Morera</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Pg. de Gràcia 35</span>
+<p>The first of the three houses on the "Block of Discord" — a stretch where rival architects built wildly different masterpieces side by side. This one, by Domènech i Montaner, drips with floral carvings and stained glass.</p>
+<p>You're looking at exteriors on this walk, so no tickets needed — just crane your neck.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.7 ★</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free · exterior view</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>stand across the street on the central reservation to get the whole ornate facade without traffic in the way.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><span><strong>Next:</strong> walk 1 min north; the next two houses are almost adjacent.</span></div>
+</li>
+<li class="stop">
+<img alt="Casa Amatller" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZNrsLhJz1YIFPwdR9F6LViuJg2IJlhPek26gScQPWxtgdHbHDXo--lH0tfkYox3MOcEdUNp0STIlTXFQih-jInrM5hkO62bw1T65-NiiCSHteJbFCjosFNENN26b_lqRpE9Rsh3MiTvrY46Xw=s4800-w800-h600"/>
+<h4>Casa Amatller</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Pg. de Gràcia 41</span>
+<p>The chocolate magnate's house, with a stepped, Flemish-style gable that looks nothing like its neighbours. Quieter and cheaper to enter than Casa Batlló next door, with a little chocolate shop inside.</p>
+<p>Notice how its straight geometric lines play off against Batlló's curves right beside it.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Daily 10:00–19:00</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.6 ★</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free to view outside</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Ticket for guided tour (~€20)</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>get Amatller's stepped gable and Batlló's wavy roofline in one frame — the contrast is the whole point of the block.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><span><strong>Next:</strong> literally next door.</span></div>
+</li>
+<li class="stop">
+<img alt="Casa Batlló" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZP9voqWYMx30XBS9OttjhYK3Gcip6rqeEaU26J8BrpGyrIGwnci89yNYDh2v4c52KS-TlWdu7qS2Zs95KGF7yaRmSxBsTuxeGptX9rHTx4LfPYD6SHVE1nOVdiEyYt-mtNSYZlUbg=s4800-w800-h600"/>
+<h4>Casa Batlló</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Pg. de Gràcia 43</span>
+<p>Gaudí's dragon-scale masterpiece and the star of the block — a shimmering facade of broken-tile mosaic, bone-like balconies, and a scaly roof said to be the dragon from the St George legend. Stunning from the street alone.</p>
+<p>If you want to go inside, book a timed ticket online in advance; the queue otherwise eats your morning.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Daily 8:30–22:30</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.7 ★ · 210k reviews</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free to admire outside</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Ticket to go inside (~€35+)</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>across the street for the full facade. The tiles glow best in late-morning sun when light hits them head-on.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><span><strong>Next:</strong> a ~7 min walk north up Passeig de Gràcia to La Pedrera at no. 92.</span></div>
+</li>
+<li class="stop">
+<img alt="La Pedrera (Casa Milà)" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPH7u_ctu7rIZAztER-Ca-TrLT4JHmmDhW9hc5ZsFUZ4VHsG8nG7Bw35-JD1a5fXEKAldaHS9VG6oi8-4jlJdWg9QiRf195uSkRMuN5x7A7u8Yd5vQA8GmDeT8rZ1HWJgcrm9geRua_FdySnmdrb5Jh_g=s4800-w800-h600"/>
+<h4>La Pedrera (Casa Milà)</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Pg. de Gràcia 92</span>
+<p>Gaudí's other Passeig de Gràcia building — a wave of grey stone with twisting wrought-iron balconies, nicknamed "the quarry." The rooftop, with its helmeted warrior chimneys, is one of the city's great sights if you go in.</p>
+<p>Closed Monday mornings in some seasons; the rooftop is the reason to buy a ticket here.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Tue–Sun 9:00–23:00</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.6 ★ · 111k reviews</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free to view facade</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Ticket for roof &amp; interior (~€28)</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>from the opposite corner to catch the full undulating facade; the stone looks softest in warm afternoon light.</span></div>
+</li>
+</ol>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<h3 style="font-size:23px;">El Raval</h3>
+<div class="card-meta">Route 4 of the Barcelona on Foot series</div>
+<div class="route-meta"><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><strong>1.5 km</strong></span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>~1.5 hrs</span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 18 L9 6 L13 14 L16 9 L20 18"></path></svg>Flat, narrow lanes</span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"></path></svg>Lively all day</span></div>
+<p class="route-intro">The other half of the old city — grittier, more multicultural and artier than the Gothic Quarter across the Rambla. This is a shorter wander through the bohemian heart of Raval, from the white cube of MACBA to Botero's fat bronze cat. Keep your wits about you in the busier lanes, but it's full of character. Metro: Liceu or Sant Antoni.</p>
+<iframe class="route-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=El+Raval+Barcelona&amp;output=embed" title="El Raval walking route map"></iframe>
+<p class="map-caption"><a href="https://www.google.com/maps/search/El+Raval+Barcelona" rel="noopener" target="_blank">Open this route in Google Maps →</a></p>
+<ol class="stops">
+<li class="stop">
+<img alt="MACBA" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZO2dOe4O_-Nz0b8Qs9Tz2sAfCkCucez_WzM0G_EDZrodTmLLyoyAej4FOQvZJ3UZMqLeWeYGGWEWv2tStXxk-Xr9IAPUaOy6E20NIWqLZoRkx1XMyn0P9FYAfv4qIm-iR7zXZqcEBtrEfhDjKY=s4800-w800-h600"/>
+<h4>MACBA</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Plaça dels Àngels</span>
+<p>The contemporary art museum — a gleaming white Richard Meier building that dropped into the middle of gritty Raval. Even if you skip the art, the big open plaza out front is Barcelona's most famous skateboarding spot, buzzing day and night.</p>
+<p>The contrast of the sleek white museum against the old neighbourhood is the whole character of Raval.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Mon/Wed–Sun, closed Tue</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.3 ★</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Plaza free</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Ticket for museum (~€11)</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>the skaters in front of the white facade — wait for someone mid-trick. Best light on the building is late afternoon.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><span><strong>Next:</strong> wind ~6 min south through Raval's lanes toward the Rambla del Raval.</span></div>
+</li>
+<li class="stop">
+<img alt="El Gat de Botero" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMYKNxmB8DFUfel9B1g7FhCQaVASuz_rWlMkUYmPrweEEL_UOheExZ2RYV7cuHH5JCyBZZzK4TXgLngPSboH52QFX9NvqSmbc806X_I6EBSlFzhBHniPXxGEkQ0I9in8-v9-tGPfA7g7Qxx=s4800-w800-h600"/>
+<h4>El Gat de Botero</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Rambla del Raval</span>
+<p>A giant, gloriously chubby bronze cat by Colombian artist Fernando Botero, sitting smack in the middle of the palm-lined Rambla del Raval. Locals just call it "el gato." It's become the cheerful mascot of the neighbourhood.</p>
+<p>The Rambla del Raval itself is a wide, leafy strip — a good place to feel the multicultural pulse of the area.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.4 ★ · 8k reviews</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free · open 24h</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Outdoor sculpture</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>stand at the cat's head height for the classic shot, or get someone to lean against its enormous side for scale.</span></div>
+</li>
+</ol>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<h3 style="font-size:23px;">Barceloneta &amp; the Waterfront</h3>
+<div class="card-meta">Route 5 of the Barcelona on Foot series</div>
+<div class="route-meta"><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><strong>2.5 km</strong></span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>~1.5–2 hrs</span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 18 L9 6 L13 14 L16 9 L20 18"></path></svg>Flat, seafront</span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"></path></svg>Go early or evening</span></div>
+<p class="route-intro">An easy, flat seafront walk from the old harbour at Port Vell out to the city beach. Lovely in the early morning before the heat, or in the evening for the sunset and the buzz of the chiringuitos. Mostly about the sea air and the views rather than ticketed sights. Metro: Barceloneta.</p>
+<iframe class="route-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Barceloneta+Beach+Barcelona&amp;output=embed" title="Barceloneta &amp; the Waterfront walking route map"></iframe>
+<p class="map-caption"><a href="https://www.google.com/maps/search/Barceloneta+Beach+Barcelona" rel="noopener" target="_blank">Open this route in Google Maps →</a></p>
+<ol class="stops">
+<li class="stop">
+<img alt="Marina Port Vell" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZNAbBqUDmv8M-KYMVDYj8_j9Ri3Rlvplbvr1CztqxRNQEsWVAPo8mZLo1kPrZe_I-2HH35_VzezkWVkoqIsmO5Z8okoxZMESUwF_VCRTN6xgFq5dURiifRuDQinB2Gi0c3nVW-RExmUyu3AGg=s4800-w800-h600"/>
+<h4>Marina Port Vell</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Moll de la Barceloneta</span>
+<p>Start at the old harbour, now a marina full of gleaming yachts, with wide promenades and the Rambla de Mar boardwalk curving across the water. A relaxed, breezy place to begin a seafront walk.</p>
+<p>From here the waterfront opens up toward the beach — all flat, all walkable.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.5 ★</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free · open promenade</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Harbour views</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>the boardwalk and yacht masts with the city behind; golden hour over the water is gorgeous here.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM9 9l3-1 2 3 3 1M11 8l-2 5 2 2 1 5"></path></svg><span><strong>Next:</strong> walk ~12 min along the seafront into the Barceloneta district toward the sand.</span></div>
+</li>
+<li class="stop">
+<img alt="Barceloneta Beach" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZNGUFWfnBEoDjBq9QHsGBohjkimN4OiIlzT8wbqM1UldsK29UOozmZm_Gg33MHWzkk2_ff0eVyfMe7cwZ1Y5dSijwa_wcLzI7vs0ZnWvDh1bW4WzkPF8YgMWxxbA9prRIY96LerItSG5sWgEtb7ezJI6A=s4800-w800-h600"/>
+<h4>Barceloneta Beach</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Barceloneta</span>
+<p>The city beach — a long stretch of sand and palm-lined promenade, always alive with swimmers, volleyball, skaters and beach bars (chiringuitos). The iconic sail-shaped W Hotel sits at the far end.</p>
+<p>Bring water and sunscreen; July sun on the open promenade is fierce. Watch belongings on the sand, and politely wave off the beach hawkers.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.4 ★ · 15k reviews</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free · public beach</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"></path></svg>Very hot midday</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>walk out toward the W Hotel and shoot back along the curve of sand, or catch the sail-shaped hotel against the blue sky.</span></div>
+</li>
+</ol>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<h3 style="font-size:23px;">Montjuïc — Half Day on the Hill</h3>
+<div class="card-meta">A transport-linked half day, not a walking route</div>
+<div class="route-meta"><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><strong>Half day</strong> (4–5 hrs)</span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 5h18M12 5V3M5 9l14-3M5 9v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V7.5"></path></svg>Funicular + cable car</span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 18 L9 6 L13 14 L16 9 L20 18"></path></svg>Hilly — let transport do the climbing</span><span class="chip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"></path></svg>Castle best late afternoon</span></div>
+<p class="route-intro">Montjuïc is a whole hill of sights spread too far apart to stroll between, so this works as a transport-linked half day rather than a walk. The smart chain: <strong>Metro to Espanya</strong> for the fountain and MNAC at the bottom, then the <strong>funicular up from Paral·lel</strong> (covered by a normal metro ticket), then the <strong>cable car</strong> to the castle at the top. Come down by bus or on foot through the gardens. You don't need to do all five — pick the two or three that appeal and let the funicular and cable car save your legs.</p>
+<div class="stop-tip" style="margin-bottom:22px;"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg><span><strong>Ticket tip:</strong> the funicular is part of the metro network (use a normal T-casual ticket). The cable car and castle are separate paid tickets. The Magic Fountain show is free but only runs Thu–Sat evenings — check before planning your day around it.</span></div>
+<iframe class="route-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Montjuic+Barcelona&amp;output=embed" title="Montjuïc map"></iframe>
+<p class="map-caption"><a href="https://www.google.com/maps/search/Montjuic+Barcelona" rel="noopener" target="_blank">Open Montjuïc in Google Maps →</a></p>
+<ol class="stops">
+<li class="stop">
+<img alt="Magic Fountain (Font Màgica)" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZNnKzKIe2AU2LF5J6ZU_U58CZKOisZIyTAtp5yinOoNxjMYw7XI680ZEr4xuSpHjkIEH88xryuZJRc4AybtjArzdot7kbnlOxYdVsGzYx8d-Ip1mcbR7uaUsCYacMI3XgOVL7Z8CVE4PfmtTFYmg4XlOw=s4800-w800-h600"/>
+<h4>Magic Fountain (Font Màgica)</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Plaça de Carles Buïgas</span>
+<p>The grand fountain at the foot of Montjuïc, framed by the floodlit Palau Nacional behind it. It only performs its choreographed water-light-and-music show on select evenings — currently Thursday to Saturday around 21:00 — so it's the one stop that depends entirely on the day.</p>
+<p>By day it's just a quiet fountain and a good photo of the palace; the magic is strictly an evening thing.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Shows Thu–Sat ~21:00</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.6 ★ · 90k reviews</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free show</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"></path></svg>No show Sun–Wed</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>from the steps above the fountain looking down, you get the water jets with the city skyline behind. Get there 20 min early for a front spot.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 5h18M12 5V3M5 9l14-3M5 9v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V7.5"></path></svg><span><strong>Getting there:</strong> Metro to Espanya (L1/L3), then a 5-min walk up. This is the bottom of the hill — start here if doing the fountain in the evening.</span></div>
+</li>
+<li class="stop">
+<img alt="MNAC (Palau Nacional)" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMU7ecE0lo5Vxkb6xHi1cZHHzWqMvVyowauAcgZerPcxskmbL6f7WVSlYtUo0YKtiJRA4VBniSWp468zO_4lt6AJqkMSCptNxwIZpwsXrs86vXJ4bffykDyLmZKzp9gL_ZbaaNNJUDrznTg=s4800-w800-h600"/>
+<h4>MNAC (Palau Nacional)</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Palau Nacional, Parc de Montjuïc</span>
+<p>The vast domed palace above the fountain houses the National Art Museum of Catalonia — a world-class Romanesque collection plus Catalan modernist work. Even skipping the art, the terrace out front is one of the best free viewpoints in the city.</p>
+<p>Closed Mondays. The rooftop viewpoint (mirador) has its own small admission separate from the museum.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Tue–Sat 10:00–20:00, Sun till 15:00</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.7 ★</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Terrace views free</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Ticket for museum (~€12)</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>the palace is best shot from the fountain terrace below; for the reverse — the city laid out beneath you — stand on the museum's front steps.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 5h18M12 5V3M5 9l14-3M5 9v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V7.5"></path></svg><span><strong>Getting there:</strong> walk up the escalators behind the Magic Fountain (~8 min), or it's a continuation if you came up from Espanya.</span></div>
+</li>
+<li class="stop">
+<img alt="Fundació Joan Miró" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMG5n8bauPDDV-GA98qHig0dSGbQhoO_Nao7VaDsgqs-r8EQvyo0uCHT08HgZmmWY3nK8voMOsn2bTreWOA6KHYzP1qQeCbQzwHIZzO-pAqiiLU5PW1nUXqcCuBOrvGw6GyhAv_JlbYgurlUc8=s4800-w800-h600"/>
+<h4>Fundació Joan Miró</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Parc de Montjuïc</span>
+<p>A bright, airy museum dedicated to Barcelona's own Joan Miró, with his playful paintings, sculptures and tapestries in a beautiful purpose-built modernist space. A calm, uncrowded counterpoint to the big-ticket sights.</p>
+<p>Closed Mondays. A guided tour helps decode Miró's visual language if you're new to his work.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Tue–Sun, closed Mon</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.5 ★</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Ticket required (~€14)</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>the white geometric architecture and courtyard sculptures are as photogenic as the art — and among the few things you can photograph here.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 5h18M12 5V3M5 9l14-3M5 9v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V7.5"></path></svg><span><strong>Getting there:</strong> ~10 min walk uphill from MNAC, or one stop on the Montjuïc tourist bus.</span></div>
+</li>
+<li class="stop">
+<img alt="Montjuïc Cable Car (Telefèric)" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZNdiFba0v2_1TD9EaGCcg189kvqiVBe8O3CkJ9hycyD0tKk53tqhMHYrUzV3NV5rB1ycWXrhe6rOjo9CBY6VKP7IKQA5SSTXNLwprM7sZawSCmKEt5Ny6gCeMJsHVDgEf2kpVoTG4dhCEJdTA=s4800-w800-h600"/>
+<h4>Montjuïc Cable Car (Telefèric)</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Avinguda Miramar 30</span>
+<p>The little gondola that carries you from the middle of the hill up to the castle, with sweeping views over the port and city on the way. It's both transport and an attraction in itself — the ride is the experience.</p>
+<p>Note this is the upper cable car (Telefèric de Montjuïc to the castle), different from the harbour cable car (Transbordador Aeri) that crosses from Barceloneta.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Daily 10:00–19:00</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.4 ★ · 27k reviews</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Return ~€17 adult</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"></path></svg>Queues build midday</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>shoot out of the gondola window on the way up — the port and the whole city open up beneath you.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 5h18M12 5V3M5 9l14-3M5 9v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V7.5"></path></svg><span><strong>Getting there:</strong> reach the lower station (Avinguda Miramar) via the Montjuïc funicular from Paral·lel metro (funicular is covered by a normal metro ticket).</span></div>
+</li>
+<li class="stop">
+<img alt="Montjuïc Castle (Castell)" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZO3FD8zRJI8dfo7tuOHUw7KRilCOToQQJrSCA3XGObpH2_G67t_Wa4GpwXaDfaME_Gpdr6onJaI7kbUWszanr981tXvkOZevg2l0c5B5A01cqu0i1_4-CTpKuTk7txsqv5l-XSjBmM2br58=s4800-w800-h600"/>
+<h4>Montjuïc Castle (Castell)</h4>
+<span class="where"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Carretera de Montjuïc 66</span>
+<p>The old fortress crowning the hill, with ramparts you can walk and the best 360° panorama in Barcelona — port, sea, and city all at once. A weighty history as a military prison sits beneath the gorgeous views.</p>
+<p>Free entry on Sundays from 15:00. The walk around the outer walls is worth it before going in.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Daily 10:00–18:00</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.4 ★ · 61k reviews</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Ticket ~€12</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free Sun from 15:00</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>walk the ramparts for the harbour panorama; late afternoon light over the sea is the best, and it's the top of the hill so nothing blocks the view.</span></div>
+<div class="stop-walk"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 5h18M12 5V3M5 9l14-3M5 9v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V7.5"></path></svg><span><strong>Getting there:</strong> the cable car drops you right at the entrance. Coming down, you can walk or take the bus back through the park.</span></div>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<!-- FOOD -->
+<section class="section" id="food">
+<div class="section-head">
+<div class="badge sun">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 3v7a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V3M6 3v18M14 3c-1 2-1 5-1 7s2 3 2 3v8"></path></svg>
+</div>
+<div>
+<span class="sub">Where to eat</span>
+<h2>Food Guide</h2>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<span class="pill">Tapas</span><span class="pill">Seafood</span><span class="pill">Market</span><span class="pill">Vermut</span><span class="pill">Cheap eats</span>
+<p style="margin-top:14px;">Spots worth seeking out, added as we find them.</p>
+</div>
+</div>
+<div class="card">
+<img alt="Pizzeria Napoletana 081" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMcTMLcL49UT2yPA4BaErXayrMfVWdcrRM4_ECCL-dDh0lf9QXfhExd1nI_1pJVAEBbF5v3ngF0a0SMYaYMw-80rwaMs6pl5doXp9bNe7nZ4eSxkWz4718xm2YkTsANbmYveIL4kwECgg4H8EfyrTAn=s4800-w800-h600" style="border-radius:0;height:200px;"/>
+<div class="card-body">
+<h3>Pizzeria Napoletana 081</h3>
+<div class="card-meta">Cheap Neapolitan pizza near the beach</div>
+<p>A tiny takeaway near Barceloneta that went viral for proper wood-fired Neapolitan pizzas at around €3.50 — fluffy, fresh, and made for grabbing a box and eating it on the sand at sunset. Expect a queue; many people order, walk to the beach, and come back to collect.</p>
+<div class="stop-facts">
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Barceloneta · 2 blocks from the beach</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Daily 12:00–23:30 · closed Tue</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.4 ★ · 788 reviews</span>
+<span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>~€3.50 a pizza</span>
+</div>
+<div class="stop-tip">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+<span><strong>Beach date move:</strong> grab two boxes, walk down to Barceloneta, and eat on the sand with the W Hotel and sunset behind you.</span>
+</div>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Pizzeria+Napoletana+081+Barcelona" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+            Open in Google Maps
+          </a>
+</div>
+</div>
+<div class="card">
+<img alt="Sushi Wonw interior" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZOyY91veuVa7ipdHmIb5E-Ytufxo5iTLJL_X3sejPRCvsvILZbmCLMcXkQ5OlD1MGPqx_3YSsa_4h9cewxC6QHxFEGIRPF5c9NzhzppcC8G8-ctOwgZQFn4Fr6qlLhKtDr9Qb1UBDKEfKqqz4dMwx9YxA=s4800-w800-h600" style="border-radius:0;height:200px;"/>
+<div class="card-body">
+<h3>Sushi Wonw</h3>
+<div class="card-meta">All-you-can-eat sushi with a wild interior</div>
+<p>A viral all-you-can-eat spot known for its dramatic jungle-meets-nightclub interior and genuinely good sushi — freshly prepared to order rather than sitting on a conveyor. The midday buffet starts around €17.95, and unusually for AYCE, the quality holds up (4.8★ from over 7,000 reviews).</p>
+<div class="stop-facts">
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Sant Andreu · north of centre (~20 min by metro)</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Lunch 13:00–16:30 · dinner 20:00–24:00</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.8 ★ · 7,133 reviews</span>
+<span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>Buffet from ~€17.95</span>
+</div>
+<div class="stop-tip">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v.01M11 12h1v4h1"></path></svg>
+<span><strong>Heads up:</strong> it's in Sant Andreu, well north of the centre (~20 min by metro L1 to Fabra i Puig). Book ahead — the walk-in queue gets long fast.</span>
+</div>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Sushi+Wonw+Barcelona" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+            Open in Google Maps
+          </a>
+</div>
+</div>
+<div class="card">
+<img alt="99 Cheesecake" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPb5UIP8q5mUE-0jELpHMut8gadHVGzyhgDZK7rBWeU6NtbRY1Ckg-Py3dKAjyQYM65BskoK2ksCh-lDbHtaA8hDV6wkQnhD2PMxCvyhN0PnPhml3j7kAi-u2HwQ6Xb3dAN5nj2A5GXcN_6RpZve6WKGw=s4800-w800-h600" style="border-radius:0;height:200px;"/>
+<div class="card-body">
+<h3>99 Cheesecake</h3>
+<div class="card-meta">The viral €1 cheesecake · Gothic Quarter</div>
+<p>The viral one — a creamy, Basque-style cheesecake slice for €0.99, with toppings (pistachio cream, Biscoff, dulce de leche, Oreo crumb) for a few cents more. Dense, not too sweet, and honestly good value anywhere, let alone in the middle of the old town. There are branches across the city; the handiest for you is right in Barri Gòtic.</p>
+<div class="stop-facts">
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Gothic Quarter · just off Plaça de Catalunya</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Daily 12:00–22:00</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.6 ★</span>
+<span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>€0.99 a slice</span>
+</div>
+<div class="stop-tip">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v.01M11 12h1v4h1"></path></svg>
+<span><strong>Easy win:</strong> it's a 2-min detour off the Gothic Quarter walking route — grab one as a mid-walk dessert. Small queue, moves fast.</span>
+</div>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=99+Cheesecake+Carrer+de+la+Canuda+Barcelona" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+            Open in Google Maps
+          </a>
+</div>
+</div>
+<div class="card">
+<img alt="Sucre Cremat crema catalana" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPyfemoQL1cH6F7iW4G6JmsvZEQPrL3-a-66B5bVaH1UzwgB1dPC82EoRMpltxw8UFoEJ_9EK-bZV31MTplR94dV7SxH62xUamSfg8acDeKfKE8egK19JY5cIec57dOncVnXrHFNOuOr5AUH5liLs9YDg=s4800-w782-h600" style="border-radius:0;height:200px;"/>
+<div class="card-body">
+<h3>Sucre Cremat</h3>
+<div class="card-meta">The one dessert to try · crema catalana</div>
+<p>Crema catalana is Catalonia's answer to crème brûlée — a citrus-and-cinnamon custard with a caramelised sugar crust, lighter than the French version and served cold. This little spot does nothing else, torching the sugar to order and serving it with two biscuits. One of the highest-rated dessert stops in the city, right in the El Born / Gothic quarter.</p>
+<div class="stop-facts">
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>El Born · near Santa Maria del Mar</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Daily 11:30–22:00</span>
+<span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.9 ★ · 828 reviews</span>
+<span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>A few euros a portion</span>
+</div>
+<div class="stop-tip">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+<span><strong>Watch the show:</strong> they caramelise the sugar crust right in front of you — a good little moment to film. Try the pistachio version alongside the classic.</span>
+</div>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Sucre+Cremat+Autentica+Crema+Catalana+Barcelona" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+            Open in Google Maps
+          </a>
+</div>
+</div>
+</section>
+<!-- SIGHTS & SPOTS -->
+<section class="section" id="sights">
+<div class="section-head">
+<div class="badge sea">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 4 7v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+</div>
+<div>
+<span class="sub">Beyond the big names</span>
+<h2>Sights &amp; Spots</h2>
+</div>
+</div>
+<div class="card">
+<img alt="La Cascada Monumental, Ciutadella" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZO2Pul87f5DFnP2-foTyaZu82ksrB6U8-W6xaeHHWZCEDzrHGoTMlMzRp5TutzR9DZ6qiDCsvSa857YzzeUKCjCHW7EWV5EUlyp7THj-9A8Mki-U1PvjxP47YEFmBzwoSx8YMeYf1trwxeA=s4800-w800-h600" style="border-radius:0;height:200px;"/>
+<div class="card-body">
+<h3>La Cascada Monumental</h3>
+<div class="card-meta">Ciutadella Park · the free "Trevi"</div>
+<p>A monumental golden fountain-and-waterfall in Parc de la Ciutadella, built for the 1888 World's Fair — a young Gaudí worked on it as a student. Grand sculptures, cascading water and a reflecting pool, tucked inside a leafy park, and completely free. A calm, photogenic alternative to the big-ticket sights.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Parc de la Ciutadella</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.8 ★ · 882 reviews</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free · open park</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"></path></svg>Best early morning</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span><strong>Photo:</strong> go early morning — soft light catches the gold, the water is freshly running, and you get the fountain almost to yourself before the park fills up.</span></div>
+</div>
+</div>
+<div class="card">
+<img alt="Mercat dels Encants flea market" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZOTj45tUlwkguBzxyivQy3jiCrZZu5U4qhJurHVMxlQrAx7psgyksa9cSziGR4A2boX7QBgcQ5ZJhHj2tMqoF8IDwDBvC35FZPXoy4MBa-oUTN0czJoBuHvrBLocVOuu6mW7f1k4oT7q5kw265K61uumQ=s4800-w800-h600" style="border-radius:0;height:200px;"/>
+<div class="card-body">
+<h3>Mercat dels Encants</h3>
+<div class="card-meta">One of Europe's oldest flea markets</div>
+<p>A sprawling flea market under a dramatic mirrored-canopy roof near Plaça de les Glòries — vintage finds, vinyl, antiques, bric-a-brac and plain junk, all reflected in that famous golden ceiling. Great for a browse and for photos even if you buy nothing. Watch your pockets in the crowds.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Carrer dels Castillejos 158</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Mon/Wed/Fri/Sat 9:00–20:00</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.3 ★ · 3,725 reviews</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free entry</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v.01M11 12h1v4h1"></path></svg><span><strong>Days matter:</strong> it only opens Mon, Wed, Fri &amp; Sat (closed Tue, Thu, Sun). The mirrored roof reflections are the shot — look up.</span></div>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<h3>Poble Sec &amp; Sant Antoni</h3>
+<div class="card-meta">Where locals actually eat &amp; drink</div>
+<p>A tip worth stealing from the locals: skip the tourist-priced terraces on the main drags and head to Poble Sec or Sant Antoni for dinner and drinks. Poble Sec's Carrer de Blai is a run of cheap pintxos bars (little bites on bread, often €1–2 each); Sant Antoni is buzzy, foodie and relaxed, built around its beautiful market hall.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Poble Sec &amp; Sant Antoni</span><span class="fact free"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>Free to wander</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"></path></svg>Come evening for the buzz</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"></path></svg><span><strong>How it works on Carrer de Blai:</strong> grab a plate, help yourself to pintxos, and keep the toothpicks — you pay by the stick at the end.</span></div>
+</div>
+</div>
+</section>
+<!-- DAY BY DAY -->
+<!-- EVENTS / WHAT'S ON -->
+<section class="section" id="events">
+<div class="section-head">
+<div class="badge sun">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M9 18V5l12-2v13M9 9l12-2M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path></svg>
+</div>
+<div>
+<span class="sub">Seasonal happenings</span>
+<h2>Events &amp; What's On</h2>
+</div>
+</div>
+<p class="route-intro">Barcelona runs a full calendar of summer events. These recur each year but dates and programmes change, so treat this as a starting point and check the official site for the current season before booking.</p>
+<div class="card"><div class="card-body">
+<h3>Pride Barcelona 2026 — what actually overlaps this trip</h3>
+<div class="card-meta">Festival 26 June – 18/19 July · main events fall on this trip's final weekend</div>
+<ul class="info-list">
+<li><span class="key">Thu 16 Jul</span><span class="val">Opening speech, Plaça Universitat, evening only. No impact — Montserrat day; just skip Universitat that evening.</span></li>
+<li><span class="key">Fri 17 Jul</span><span class="val">Pride Village opens at Plaça Universitat. Daytime city is normal; from late afternoon avoid Universitat, lower Passeig de Gràcia and central Gran Via.</span></li>
+<li><span class="key">Sat 18 Jul</span><span class="val"><strong>Main parade, 18:00</strong> — Plaça Universitat → Gran Via → Passeig de Sant Joan → Passeig de Lluís Companys (Arc de Triomf). Expect road closures across that axis roughly 17:00–21:00. This trip is in the Pyrenees all day; return route via Urquinaona + metro L1 is in Day 7.</span></li>
+<li><span class="key">Sun 19 Jul</span><span class="val">No major events — normal city. Girona tour day.</span></li>
+</ul>
+<div class="stop-tip"><span><strong>Note:</strong> the parade route occasionally changes (some years it ran Paral·lel → Maria Cristina instead). Check @pridebarcelona socials that week for the confirmed route.</span></div>
+</div></div>
+<div class="card">
+<img alt="Grec Festival" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZOrDThjgezGpqb1aPcn2g1_ye6NURAWfFSL_K5cBMEFZVxDRjIYtU4II-PepMESeuSRhGp_k1QfnLVQ4FVcv76FKjlZQ59NcjDuwm6SE-s7Ov_ms2MX_2MwUdvhbmR0a_44i1N8YFKCkm5_FoY=s4800-w800-h600" style="border-radius:0;height:200px;"/>
+<div class="card-body">
+<h3>Grec Festival</h3>
+<div class="card-meta">Barcelona's big summer arts festival</div>
+<p>The city's flagship summer festival of theatre, dance, music and circus, held across dozens of venues each year. The heart of it is the open-air Teatre Grec, a former quarry turned Greek-style amphitheatre on the slopes of Montjuïc.</p><p>Shows are individually ticketed and priced per performance; the big names sell out early, so browse the programme and book ahead if something catches your eye.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>Summers (late June–end July)</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Teatre Grec + venues citywide</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 9 9l-7 .5 5.5 4.5L6 21l6-3.5L18 21l-1.5-7L22 9.5 15 9z"></path></svg>4.6 ★ venue</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 0 6v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-6z"></path></svg>Ticketed per show</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v.01M11 12h1v4h1"></path></svg><span><strong>How to use it:</strong> check festivalgrec.barcelona for the current programme and dates, then book the specific show you want.</span></div>
+</div>
+</div>
+<div class="card">
+<img alt="Sala Montjuïc — Open-Air Cinema" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZO3FD8zRJI8dfo7tuOHUw7KRilCOToQQJrSCA3XGObpH2_G67t_Wa4GpwXaDfaME_Gpdr6onJaI7kbUWszanr981tXvkOZevg2l0c5B5A01cqu0i1_4-CTpKuTk7txsqv5l-XSjBmM2br58=s4800-w800-h600" style="border-radius:0;height:200px;"/>
+<div class="card-body">
+<h3>Sala Montjuïc — Open-Air Cinema</h3>
+<div class="card-meta">Films under the stars at the castle</div>
+<p>A beloved summer ritual: classic and contemporary films screened outdoors in the moat of Montjuïc Castle, with live music beforehand and a picnic atmosphere. Films play in their original language with Spanish or Catalan subtitles.</p><p>You can bring your own picnic or buy food on site. Doors open early evening, music first, film after dark. Book tickets in advance.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>Summer season, select nights</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Montjuïc Castle moat</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>Live music before the film</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>Around €9–12</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v.01M11 12h1v4h1"></path></svg><span><strong>Good to know:</strong> screenings run only a few nights a week and in original-version-with-subtitles. Check salamontjuic.org for the schedule and film list.</span></div>
+</div>
+</div>
+<div class="card">
+<img alt="Casa Batlló — Magic Nights" class="stop-photo" loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZP6YgvCIlR25HxLrIt9YQ1iSgw8psTGbKcxsCaZVhcy4xsVd3HkAZBfoxL_d1Ro0l1W1nchsZWV7T13KPM4tmEP6d0U7O3oMzKEx_SdUutU73xLV0sLEx4lbGzJD90L-a7rDZ0RBg=s4800-w800-h600" style="border-radius:0;height:200px;"/>
+<div class="card-body">
+<h3>Casa Batlló — Magic Nights</h3>
+<div class="card-meta">Rooftop concerts on the dragon terrace</div>
+<p>Warm-season evenings on the roof terrace of Gaudí's Casa Batlló: a self-guided evening visit of the house, a glass of cava, and a live concert (jazz, soul, flamenco, rumba, pop) under the dragon-scale chimneys, with the city glittering below.</p><p>A romantic, atmospheric splurge. Tickets usually only go on sale for the current and next month, so you can't book far ahead.</p>
+<div class="stop-facts"><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>Spring through autumn, most nights</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Passeig de Gràcia 43</span><span class="fact"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>Live rooftop concert + cava</span><span class="fact ticket"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>From ~€59</span></div>
+<div class="stop-tip"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v.01M11 12h1v4h1"></path></svg><span><strong>Booking:</strong> the calendar opens roughly a month out — check casabatllo.es when you're closer to your dates.</span></div>
+</div>
+</div>
+</section>
+<!-- BOOKINGS -->
+<section class="section" id="bookings">
+<div class="section-head">
+<div class="badge sea">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 4h16v16l-4-3-4 3-4-3-4 3zM9 9h6M9 13h4"></path></svg>
+</div>
+<div>
+<span class="sub">Refs &amp; documents</span>
+<h2>Bookings</h2>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<ul class="info-list">
+<li><span class="key">Flights</span><span class="val">EasyJet both legs · Booking reference: [Enter ref] · PDF: flight.pdf</span></li>
+<li><span class="key">Hotel Simeon</span><span class="val">12–14 Jul · direct hotel confirmation · Booking reference: [Enter ref] · PDF/screenshot: [add file]</span></li>
+<li><span class="key">Hotel Sunotel Aston</span><span class="val">14–20 Jul · Booking reference: [Enter ref] · PDF/screenshot: [add file]</span></li>
+<li><span class="key">Moventis airport → Tossa</span><span class="val">Sun 12 Jul · <strong>not yet booked</strong> · target 10:50 T2 → Tossa 13:05 · ~€33.60 for 2 · buy: <a href="https://compras.moventis.es">compras.moventis.es</a> · ticket: [add file]</span></li>
+<li><span class="key">Moventis Tossa → Barcelona</span><span class="val">Tue 14 Jul · <strong>not yet booked</strong> · recommended <strong>11:10 → 12:30</strong> (Day 3 timetable) · ~€15–16pp · buy: <a href="https://compras.moventis.es">compras.moventis.es</a> · ticket: [add file]</span></li>
+<li><span class="key">Sagrada Família</span><span class="val">Wed 15 Jul · <strong>17:00 slot</strong> · tickets nominative, passports required · Booking reference: [Enter ref]</span></li>
+<li><span class="key">Park Güell</span><span class="val">Tue 14 Jul · 16:30 timed entry · Booking reference: [Enter ref]</span></li>
+<li><span class="key">Tot Montserrat</span><span class="val">Thu 16 Jul · €71.50pp · collect/use from Plaça Catalunya tourist office · Booking reference: [Enter ref]</span></li>
+<li><span class="key">Pyrenees tour</span><span class="val">Sat 18 Jul · <strong>Klook</strong> · meet 08:15 near Palau de la Música (exact corner on the Klook voucher) · Booking reference: [Enter ref]</span></li>
+<li><span class="key">Girona/Besalú/Castellfollit tour</span><span class="val">Sun 19 Jul · <strong>GetYourGuide — booked</strong> · arrive by <strong>07:50</strong> · pickup: <strong>Pg. de Gràcia, 27, L'Eixample, 08007 Barcelona</strong>, in front of BBVA · listed drop-off: Pg. de Gràcia, 27 · Booking reference: [Enter ref]</span></li>
+<li><span class="key">Airport taxi</span><span class="val">Mon 20 Jul · pre-book for 04:30 · FreeNow or Cabify · target Terminal 2 by 05:15</span></li>
+</ul>
+</div>
+</div>
+</section>
+<section class="section" id="history-companion">
+<div class="section-head">
+<div class="badge sea"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H6.5A2.5 2.5 0 0 0 4 20.5z"></path><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H14v15a3 3 0 0 1 3-3h.5A2.5 2.5 0 0 1 20 17.5z"></path></svg></div>
+<div><span class="sub">Separate companion page</span><h2>Historical Details</h2></div>
+</div>
+<div class="card"><div class="card-body">
+<h3>The long history is kept separate</h3>
+<p>The itinerary stays practical and easy to scan. The companion page explains the Roman, medieval, religious, architectural and modern history behind the places on this trip.</p>
+<a class="map-link" href="history.html"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H6.5A2.5 2.5 0 0 0 4 20.5z"></path><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H14v15a3 3 0 0 1 3-3h.5A2.5 2.5 0 0 1 20 17.5z"></path></svg>Open Historical Companion</a>
+</div></div>
+</section>
+</div>
+<footer>Barcelona &amp; Costa Brava · July 2026</footer>
+<a aria-label="Back to top" class="totop" href="#top" id="totop">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+</a>
+<script>
+    const totop = document.getElementById('totop');
+    window.addEventListener('scroll', () => {
+      totop.classList.toggle('show', window.scrollY > 600);
+    });
+  </script>
+</body>
+</html>
